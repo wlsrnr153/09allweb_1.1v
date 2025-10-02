@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="연구장비매입센터 오시는길 - 서울 강남구 테헤란로 본사 위치와 대중교통 이용 방법, 주차 안내를 제공합니다.">
+    <meta name="keywords" content="오시는길, 회사위치, 본사주소, 강남구, 테헤란로, 대중교통, 주차안내">
+    <meta name="format-detection" content="telephone=no">
+    <title>오시는길 - 기자재의 모든곳</title>
+    <link rel="shortcut icon" href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/location.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- 카카오맵 API -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_MAP_API_KEY"></script>
+</head>
+<body>
+    <a href="#container" class="skip">본문바로가기</a>
+    
+    <div id="wrap">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="logo_area">
+                    <h1 class="site_id">
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" title="메인 바로가기">
+                            <img src="images/logo_simple.svg" alt="기자재의모든것">
+                        </a>
+                    </h1>
+                    
+                    <div class="srch_lnb">
+                        <div class="srch_inner">
+                            <form action="/search" id="srchForm" name="srchForm">
+                                <fieldset class="srch_field">
+                                    <legend>전체 검색 입력폼</legend>
+                                    <label class="srch_label">
+                                        <span class="blind">전체 검색</span>
+                                        <input type="text" id="keyword" autocomplete="off" 
+                                               title="검색어를 입력하세요." 
+                                               placeholder="원하는 연구장비를 검색해보세요" value="">
+                                    </label>
+                                    <button type="submit" class="btn_srch" title="검색">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn_lnb" id="mainMenuOpenBtn">
+                    <span>메뉴열기</span>
+                </button>
+            </div>
+            
+            <!-- Navigation -->
+            <nav id="mainHeaderMenuArea">
+                <ul class="depth01">
+                    <!-- 활성화시 'act' 클래스 추가 -->
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html">회사소개</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_1"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html" title="회사개요">회사개요</a></li>
+                            <li id="depth02_menu_2"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/history.html" title="연혁">연혁</a></li>
+                            <li id="depth02_menu_3"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/location.html" title="오시는길">오시는길</a></li>
+                            <li id="depth02_menu_4"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="문의하기">문의하기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html">문의하기</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_5"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="일반문의">일반문의</a></li>
+                            <li id="depth02_menu_6"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="견적문의">견적문의</a></li>
+                            <li id="depth02_menu_7"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/kakao.html" title="카톡문의">카톡문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html">장비매입</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_8"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="분석장비">분석장비</a></li>
+                            <li id="depth02_menu_9"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="계측장비">계측장비</a></li>
+                            <li id="depth02_menu_10"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="기타실험장비">기타실험장비</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/consulting">컨설팅</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_11"><a href="/consulting/selection" title="장비선정">장비선정</a></li>
+                            <li id="depth02_menu_12"><a href="/consulting/installation" title="설치지원">설치지원</a></li>
+                            <li id="depth02_menu_13"><a href="/consulting/training" title="교육훈련">교육훈련</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/support">고객지원</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_14"><a href="/support/inquiry" title="문의하기">문의하기</a></li>
+                            <li id="depth02_menu_15"><a href="/support/quote" title="견적요청">견적요청</a></li>
+                            <li id="depth02_menu_16"><a href="/support/faq" title="자주묻는질문">자주묻는질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="quick_set">
+                    <h3 class="tit">퀵메뉴 설정</h3>
+                    <button type="button" onclick="fn_quickSet('close');" class="btn_lnb_close">퀵메뉴 설정 닫기</button>
+                    
+                    <form action="/user/quick/menu/add" class="quicListAddFrm" id="menuAddFrm" method="post" name="menuAddFrm">
+                        <fieldset>
+                            <legend>퀵메뉴 설정 폼</legend>
+                            
+                            <!-- 현재 퀵메뉴 -->
+                            <dl class="cur_quick">
+                                <dt><span class="blind">현재 </span><var>&nbsp;</var>님의 퀵메뉴</dt>
+                                <dd class="fill ico5 numSet" id="default1823">
+                                    <strong>오시는길</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1823','오시는길');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[0].menuCd" value="1823">
+                                    <input type="hidden" class="menuSort" name="menus[0].sortNo" value="1">
+                                </dd>
+                            </dl>
+                            
+                            <div class="q_btn_box">
+                                <button type="reset" onclick="fn_quick_reset()" title="설정 초기화">초기화</button>
+                                <button type="button" class="submit" onclick="fn_quick_submit()" title="설정 저장">저장</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <article id="container">
+            <h2 class="blind">본문</h2>
+            
+            <!-- Location Section -->
+            <section class="location_section">
+                <div class="inner">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="location" id="menuNaviArea">
+                        <ul class="loc_dep01">
+                            <li class="not_navi_dep"><a href="/" class="loc_tit" title="메인으로 바로가기">메인</a></li>
+                            <li class="not_navi_dep"><a href="/about" class="loc_tit" title="링크 이동">회사소개</a></li>
+                            <li class="">
+                                <a href="/about/location" class="loc_tit arrow" title="하위메뉴 열기">오시는길</a>
+                                <ul class="loc_dep02">
+                                    <li class="" id="loc_dep02_menu_1">
+                                        <a href="/about/company">회사개요</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_2">
+                                        <a href="/about/history">연혁</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_3">
+                                        <a href="/about/organization">조직도</a>
+                                    </li>
+                                    <li class="curr" id="loc_dep02_menu_4">
+                                        <a href="/about/location">오시는길</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Content -->
+                    <section id="content">
+                        <header class="header">
+                            <h2 class="tit">오시는길</h2>
+                        </header>
+                        
+                        <!-- Location Intro -->
+                        <div class="location_intro">
+                            <h2 class="tit_page">연구장비매입센터를 찾아주세요</h2>
+                            <p class="tit_page_s">서울 강남구 테헤란로에 위치한 본사로 오시는 길을 안내해드립니다.<br>대중교통과 자가용 이용 시 편리한 접근 방법을 확인하세요.</p>
+                        </div>
+                        
+                        <!-- Company Address -->
+                        <div class="address_section">
+                            <div class="address_card">
+                                <div class="address_icon">📍</div>
+                                <div class="address_info">
+                                    <h3>본사 주소</h3>
+                                    <address>
+                                        서울특별시 강남구 테헤란로 123<br>
+                                        (역삼동) 연구장비빌딩 10층
+                                    </address>
+                                    <div class="address_details">
+                                        <p><strong>우편번호:</strong> 06234</p>
+                                        <p><strong>대표전화:</strong> 02-1234-5678</p>
+                                        <p><strong>팩스:</strong> 02-1234-5679</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Map Section -->
+                        <div class="map_section">
+                            <h3 class="section_title">위치 안내</h3>
+                            <div class="map_container">
+                                <div id="kakaoMap" class="kakao_map"></div>
+                                <div class="map_controls">
+                                    <button type="button" class="map_btn" onclick="showCurrentLocation()">현재 위치</button>
+                                    <button type="button" class="map_btn" onclick="showCompanyLocation()">회사 위치</button>
+                                    <button type="button" class="map_btn" onclick="getDirections()">길찾기</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Transportation -->
+                        <div class="transportation_section">
+                            <h3 class="section_title">대중교통 이용</h3>
+                            <div class="transport_grid">
+                                <!-- 지하철 -->
+                                <div class="transport_card">
+                                    <div class="transport_icon">🚇</div>
+                                    <h4>지하철</h4>
+                                    <div class="transport_info">
+                                        <div class="line_info">
+                                            <span class="line_number line_2">2호선</span>
+                                            <span class="station_name">강남역</span>
+                                            <span class="exit_number">3번 출구</span>
+                                        </div>
+                                        <div class="line_info">
+                                            <span class="line_number line_9">9호선</span>
+                                            <span class="station_name">신논현역</span>
+                                            <span class="exit_number">5번 출구</span>
+                                        </div>
+                                        <p class="walking_time">도보 5-7분</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 버스 -->
+                                <div class="transport_card">
+                                    <div class="transport_icon">🚌</div>
+                                    <h4>버스</h4>
+                                    <div class="transport_info">
+                                        <div class="bus_info">
+                                            <h5>간선버스</h5>
+                                            <p>146, 240, 360, 740</p>
+                                        </div>
+                                        <div class="bus_info">
+                                            <h5>지선버스</h5>
+                                            <p>3412, 6411</p>
+                                        </div>
+                                        <div class="bus_info">
+                                            <h5>광역버스</h5>
+                                            <p>1100, 1700, 7007</p>
+                                        </div>
+                                        <p class="bus_stop">강남역 정류장 하차</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 공항버스 -->
+                                <div class="transport_card">
+                                    <div class="transport_icon">✈️</div>
+                                    <h4>공항버스</h4>
+                                    <div class="transport_info">
+                                        <div class="airport_bus">
+                                            <h5>인천공항</h5>
+                                            <p>6009번 (인천공항 ↔ 강남역)</p>
+                                            <p class="travel_time">소요시간: 약 1시간 30분</p>
+                                        </div>
+                                        <div class="airport_bus">
+                                            <h5>김포공항</h5>
+                                            <p>6000번 (김포공항 ↔ 강남역)</p>
+                                            <p class="travel_time">소요시간: 약 1시간</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 택시 -->
+                                <div class="transport_card">
+                                    <div class="transport_icon">🚕</div>
+                                    <h4>택시</h4>
+                                    <div class="transport_info">
+                                        <div class="taxi_info">
+                                            <h5>강남역에서</h5>
+                                            <p>약 3분, 기본요금</p>
+                                        </div>
+                                        <div class="taxi_info">
+                                            <h5>인천공항에서</h5>
+                                            <p>약 1시간 20분, 60,000원 내외</p>
+                                        </div>
+                                        <div class="taxi_info">
+                                            <h5>김포공항에서</h5>
+                                            <p>약 50분, 40,000원 내외</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Parking -->
+                        <div class="parking_section">
+                            <h3 class="section_title">주차 안내</h3>
+                            <div class="parking_info">
+                                <div class="parking_card">
+                                    <div class="parking_icon">🅿️</div>
+                                    <h4>건물 주차장</h4>
+                                    <ul>
+                                        <li>지하 1-3층 주차장 이용 가능</li>
+                                        <li>총 주차면수: 200대</li>
+                                        <li>방문객 주차: 2시간 무료</li>
+                                        <li>초과 시 30분당 1,000원</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="parking_card">
+                                    <div class="parking_icon">🏢</div>
+                                    <h4>주차 요금</h4>
+                                    <ul>
+                                        <li>기본 요금: 30분당 1,000원</li>
+                                        <li>일일 최대: 20,000원</li>
+                                        <li>방문객 할인: 2시간 무료</li>
+                                        <li>결제 방법: 현금, 카드, 모바일</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="parking_card">
+                                    <div class="parking_icon">⚠️</div>
+                                    <h4>주차 안내사항</h4>
+                                    <ul>
+                                        <li>주차 공간이 제한적이므로 대중교통 이용 권장</li>
+                                        <li>주말 및 공휴일 주차 가능</li>
+                                        <li>대형차량 주차 불가</li>
+                                        <li>주차 문의: 02-1234-5678</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Nearby Facilities -->
+                        <div class="facilities_section">
+                            <h3 class="section_title">주변 시설</h3>
+                            <div class="facilities_grid">
+                                <div class="facility_card">
+                                    <div class="facility_icon">🍽️</div>
+                                    <h4>식당</h4>
+                                    <ul>
+                                        <li>강남역 맛집거리 (도보 3분)</li>
+                                        <li>테헤란로 레스토랑 (도보 5분)</li>
+                                        <li>역삼동 카페거리 (도보 7분)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="facility_card">
+                                    <div class="facility_icon">🏨</div>
+                                    <h4>숙박</h4>
+                                    <ul>
+                                        <li>강남역 호텔 (도보 5분)</li>
+                                        <li>테헤란로 비즈니스호텔 (도보 3분)</li>
+                                        <li>역삼동 게스트하우스 (도보 10분)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="facility_card">
+                                    <div class="facility_icon">🏪</div>
+                                    <h4>편의시설</h4>
+                                    <ul>
+                                        <li>강남역 지하상가 (도보 3분)</li>
+                                        <li>편의점 24시간 운영 (건물 1층)</li>
+                                        <li>은행 ATM (건물 1층)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="facility_card">
+                                    <div class="facility_icon">🚗</div>
+                                    <h4>교통</h4>
+                                    <ul>
+                                        <li>강남역 지하철 2,9호선</li>
+                                        <li>강남역 버스터미널</li>
+                                        <li>공항버스 정류장</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div class="contact_info_section">
+                            <h3 class="section_title">연락처 정보</h3>
+                            <div class="contact_grid">
+                                <div class="contact_card">
+                                    <div class="contact_icon">📞</div>
+                                    <h4>대표전화</h4>
+                                    <p class="contact_number">02-1234-5678</p>
+                                    <p class="contact_hours">평일 09:00-18:00</p>
+                                </div>
+                                
+                                <div class="contact_card">
+                                    <div class="contact_icon">📠</div>
+                                    <h4>팩스</h4>
+                                    <p class="contact_number">02-1234-5679</p>
+                                    <p class="contact_hours">24시간 접수</p>
+                                </div>
+                                
+                                <div class="contact_card">
+                                    <div class="contact_icon">📧</div>
+                                    <h4>이메일</h4>
+                                    <p class="contact_number">info@research-equipment.co.kr</p>
+                                    <p class="contact_hours">24시간 접수</p>
+                                </div>
+                                
+                                <div class="contact_card">
+                                    <div class="contact_icon">🕒</div>
+                                    <h4>운영시간</h4>
+                                    <p class="contact_number">평일 09:00-18:00</p>
+                                    <p class="contact_hours">토요일 09:00-13:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Visit CTA -->
+                        <div class="visit_cta">
+                            <h3>방문 전 미리 연락주세요</h3>
+                            <p>더욱 원활한 상담을 위해 방문 전 미리 연락주시면<br>주차 공간 확보 및 담당자 안내를 도와드리겠습니다.</p>
+                            <div class="cta_buttons">
+                                <a href="tel:02-1234-5678" class="btn_primary">📞 전화걸기</a>
+                                <a href="mailto:info@research-equipment.co.kr" class="btn_secondary">📧 이메일 보내기</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </article>
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="footer_top">
+                <div class="inner">
+                    <div class="company_info">
+                        <h3>연구장비 구매 전문 플랫폼</h3>
+                        <address>
+                            서울특별시 강남구 테헤란로 123 (역삼동)<br>
+                            대표전화: 02-1234-5678 | 팩스: 02-1234-5679<br>
+                            사업자등록번호: 123-45-67890 | 대표자: 홍길동
+                        </address>
+                    </div>
+                    <dl class="contact_info">
+                        <dt>고객센터</dt>
+                        <dd>1588-1234</dd>
+                        <dd>평일 09:00-18:00</dd>
+                    </dl>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">사이트맵</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="inner">
+                    <div class="bot">
+                        <div class="copy">
+                            <p>Copyright © 2024 연구장비 구매 전문 플랫폼. All rights reserved.</p>
+                        </div>
+                        <div class="certify">
+                            <p>인증마크</p>
+                        </div>
+                        <div class="agency">
+                            <img src="images/logo_msit.png" alt="과학기술정보통신부">
+                            <img src="images/logo_nfec.png" alt="국가연구시설장비진흥센터">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // 카카오맵 초기화
+        let map;
+        let marker;
+        
+        function initMap() {
+            // 회사 위치 (강남구 테헤란로 123)
+            const companyPosition = new kakao.maps.LatLng(37.5665, 126.9780);
+            
+            // 지도 생성
+            map = new kakao.maps.Map(document.getElementById('kakaoMap'), {
+                center: companyPosition,
+                level: 3
+            });
+            
+            // 마커 생성
+            marker = new kakao.maps.Marker({
+                position: companyPosition,
+                map: map
+            });
+            
+            // 인포윈도우 생성
+            const infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="padding:10px; text-align:center;">연구장비매입센터<br>서울특별시 강남구 테헤란로 123</div>'
+            });
+            
+            // 마커 클릭 시 인포윈도우 표시
+            kakao.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+        
+        // 현재 위치 표시
+        function showCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const currentPosition = new kakao.maps.LatLng(
+                        position.coords.latitude,
+                        position.coords.longitude
+                    );
+                    
+                    map.setCenter(currentPosition);
+                    map.setLevel(5);
+                    
+                    // 현재 위치 마커 추가
+                    const currentMarker = new kakao.maps.Marker({
+                        position: currentPosition,
+                        map: map,
+                        image: new kakao.maps.MarkerImage(
+                            'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png',
+                            new kakao.maps.Size(24, 35)
+                        )
+                    });
+                });
+            } else {
+                alert('현재 위치를 가져올 수 없습니다.');
+            }
+        }
+        
+        // 회사 위치로 이동
+        function showCompanyLocation() {
+            const companyPosition = new kakao.maps.LatLng(37.5665, 126.9780);
+            map.setCenter(companyPosition);
+            map.setLevel(3);
+        }
+        
+        // 길찾기
+        function getDirections() {
+            const companyAddress = '서울특별시 강남구 테헤란로 123';
+            const url = `https://map.kakao.com/link/search/${encodeURIComponent(companyAddress)}`;
+            window.open(url, '_blank');
+        }
+        
+        // 페이지 로드 시 지도 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            // 카카오맵 API 로드 후 초기화
+            if (typeof kakao !== 'undefined') {
+                initMap();
+            } else {
+                // API 로드 대기
+                setTimeout(initMap, 1000);
+            }
+        });
+        
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // 애니메이션 요소 관찰
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.transport_card, .parking_card, .facility_card, .contact_card');
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
