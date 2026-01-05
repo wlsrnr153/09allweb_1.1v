@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="연구장비매입센터의 공지사항을 확인하세요. 새로운 서비스, 이벤트, 시스템 점검 등 중요한 소식을 빠르게 전달합니다.">
+    <meta name="keywords" content="공지사항, 연구장비, 뉴스, 이벤트, 서비스안내">
+    <meta name="format-detection" content="telephone=no">
+    <title>공지사항 - 기자재의 모든곳</title>
+    <link rel="shortcut icon" href=""image/ico">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/notice.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <a href="#container" class="skip">본문바로가기</a>
+    
+    <div id="wrap">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="logo_area">
+                    <h1 class="site_id">
+                        <a href="index.html" title="메인 바로가기">
+                            <img src="images/logo_simple.svg" alt="기자재의모든것">
+                        </a>
+                    </h1>
+                    
+                    <div class="srch_lnb">
+                        <div class="srch_inner">
+                            <form action="/search" id="srchForm" name="srchForm">
+                                <fieldset class="srch_field">
+                                    <legend>전체 검색 입력폼</legend>
+                                    <label class="srch_label">
+                                        <span class="blind">전체 검색</span>
+                                        <input type="text" id="keyword" autocomplete="off" 
+                                               title="검색어를 입력하세요." 
+                                               placeholder="원하는 연구장비를 검색해보세요" value="">
+                                    </label>
+                                    <button type="submit" class="btn_srch" title="검색">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn_lnb" id="mainMenuOpenBtn">
+                    <span>메뉴열기</span>
+                </button>
+            </div>
+            
+            <!-- Navigation -->
+            <nav id="mainHeaderMenuArea">
+                <ul class="depth01">
+                    <!-- 활성화시 'act' 클래스 추가 -->
+                    <li>
+                        <a href="about.html">회사소개</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_1"><a href="about.html" title="회사개요">회사개요</a></li>
+                            <li id="depth02_menu_2"><a href="history.html" title="연혁">연혁</a></li>
+                            <li id="depth02_menu_3"><a href="location.html" title="오시는길">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contact.html">문의하기</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_5"><a href="contact.html" title="일반문의">일반문의</a></li>
+                            <li id="depth02_menu_6"><a href="contact.html" title="견적문의">견적문의</a></li>
+                            <li id="depth02_menu_7"><a href="kakao.html" title="카톡문의">카톡문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="equipment.html">장비매입</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_8"><a href="equipment.html" title="분석장비">분석장비</a></li>
+                            <li id="depth02_menu_9"><a href="equipment.html" title="계측장비">계측장비</a></li>
+                            <li id="depth02_menu_10"><a href="equipment.html" title="기타실험장비">기타실험장비</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/consulting">컨설팅</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_11"><a href="/consulting/selection" title="장비선정">장비선정</a></li>
+                            <li id="depth02_menu_12"><a href="/consulting/installation" title="설치지원">설치지원</a></li>
+                            <li id="depth02_menu_13"><a href="/consulting/training" title="교육훈련">교육훈련</a></li>
+                        </ul>
+                    </li>
+                    <li class="act">
+                        <a href="notice.html">공지사항</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_14"><a href="notice.html" title="공지사항">공지사항</a></li>
+                            <li id="depth02_menu_15"><a href="/support/quote" title="작업사진">작업사진</a></li>
+                            <li id="depth02_menu_16"><a href="/support/faq" title="자주묻는질문">자주묻는질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="quick_set">
+                    <h3 class="tit">퀵메뉴 설정</h3>
+                    <button type="button" onclick="fn_quickSet('close');" class="btn_lnb_close">퀵메뉴 설정 닫기</button>
+                    
+                    <form action="/user/quick/menu/add" class="quicListAddFrm" id="menuAddFrm" method="post" name="menuAddFrm">
+                        <fieldset>
+                            <legend>퀵메뉴 설정 폼</legend>
+                            
+                            <!-- 현재 퀵메뉴 -->
+                            <dl class="cur_quick">
+                                <dt><span class="blind">현재 </span><var>&nbsp;</var>님의 퀵메뉴</dt>
+                                <!-- 값이 들어오면, 순차적으로 'fill' 클래스 추가 -->
+                                <!-- 'ico01' ~ 'ico14' 로 아이콘 변경 -->
+                                <dd class="fill ico5 numSet" id="default1823">
+                                    <strong>공지사항</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1823','공지사항');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[0].menuCd" value="1823">
+                                    <input type="hidden" class="menuSort" name="menus[0].sortNo" value="1">
+                                </dd>
+                            </dl>
+                            
+                            <div class="q_btn_box">
+                                <button type="reset" onclick="fn_quick_reset()" title="설정 초기화">초기화</button>
+                                <button type="button" class="submit" onclick="fn_quick_submit()" title="설정 저장">저장</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <article id="container">
+            <h2 class="blind">본문</h2>
+            
+            <!-- Notice Section -->
+            <section class="notice_section">
+                <div class="inner">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="location" id="menuNaviArea">
+                        <ul class="loc_dep01">
+                            <li class="not_navi_dep"><a href="index.html" class="loc_tit" title="메인으로 바로가기">메인</a></li>
+                            <li class="not_navi_dep"><a href="notice.html" class="loc_tit" title="링크 이동">공지사항</a></li>
+                            <li class="">
+                                <a href="notice.html" class="loc_tit arrow" title="하위메뉴 열기">공지사항</a>
+                                <ul class="loc_dep02">
+                                    <li class="curr" id="loc_dep02_menu_1">
+                                        <a href="notice.html">공지사항</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_2">
+                                        <a href="/support/quote">작업사진</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_3">
+                                        <a href="/support/faq">자주묻는질문</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Content -->
+                    <section id="content">
+                        <header class="header">
+                            <h2 class="tit">공지사항</h2>
+                            <p class="tit_desc">연구장비매입센터의 새로운 소식과 중요한 안내사항을 확인하세요.</p>
+                        </header>
+                        
+                        <!-- Search and Filter -->
+                        <div class="notice_tools">
+                            <div class="search_box">
+                                <form class="search_form" id="noticeSearchForm">
+                                    <fieldset>
+                                        <legend>공지사항 검색</legend>
+                                        <div class="search_input_group">
+                                            <select name="search_type" class="search_type">
+                                                <option value="all">전체</option>
+                                                <option value="title">제목</option>
+                                                <option value="content">내용</option>
+                                            </select>
+                                            <input type="text" name="keyword" class="search_keyword" placeholder="검색어를 입력하세요">
+                                            <button type="submit" class="btn_search">검색</button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            
+                            <div class="filter_tabs">
+                                <ul class="tab_list">
+                                    <li class="active"><a href="#all" data-category="all">전체</a></li>
+                                    <li><a href="#notice" data-category="notice">공지</a></li>
+                                    <li><a href="#event" data-category="event">이벤트</a></li>
+                                    <li><a href="#service" data-category="service">서비스</a></li>
+                                    <li><a href="#maintenance" data-category="maintenance">점검</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Notice List -->
+                        <div class="notice_list_wrap">
+                            <div class="list_header">
+                                <div class="total_count">
+                                    총 <strong>24</strong>건의 게시물이 있습니다.
+                                </div>
+                                <div class="view_options">
+                                    <button type="button" class="btn_view active" data-view="list">목록형</button>
+                                    <button type="button" class="btn_view" data-view="card">카드형</button>
+                                </div>
+                            </div>
+                            
+                            <!-- List View -->
+                            <div class="notice_list_view active" id="listView">
+                                <table class="notice_table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col_no">번호</th>
+                                            <th class="col_category">분류</th>
+                                            <th class="col_title">제목</th>
+                                            <th class="col_author">작성자</th>
+                                            <th class="col_date">등록일</th>
+                                            <th class="col_hit">조회</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="notice_item priority">
+                                            <td class="col_no">
+                                                <span class="badge priority">중요</span>
+                                            </td>
+                                            <td class="col_category">
+                                                <span class="category_badge notice">공지</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice1" class="title_link">
+                                                    <span class="title_text">2024년 3분기 시스템 정기점검 안내</span>
+                                                    <span class="new_badge">NEW</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">관리자</td>
+                                            <td class="col_date">2024-03-15</td>
+                                            <td class="col_hit">1,234</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">23</td>
+                                            <td class="col_category">
+                                                <span class="category_badge event">이벤트</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice2" class="title_link">
+                                                    <span class="title_text">봄맞이 연구장비 특가 이벤트 진행</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">마케팅팀</td>
+                                            <td class="col_date">2024-03-12</td>
+                                            <td class="col_hit">856</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">22</td>
+                                            <td class="col_category">
+                                                <span class="category_badge service">서비스</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice3" class="title_link">
+                                                    <span class="title_text">새로운 장비 임대 서비스 출시</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">서비스팀</td>
+                                            <td class="col_date">2024-03-10</td>
+                                            <td class="col_hit">642</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">21</td>
+                                            <td class="col_category">
+                                                <span class="category_badge notice">공지</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice4" class="title_link">
+                                                    <span class="title_text">고객센터 운영시간 변경 안내</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">관리자</td>
+                                            <td class="col_date">2024-03-08</td>
+                                            <td class="col_hit">423</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">20</td>
+                                            <td class="col_category">
+                                                <span class="category_badge maintenance">점검</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice5" class="title_link">
+                                                    <span class="title_text">웹사이트 서버 점검 완료</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">시스템팀</td>
+                                            <td class="col_date">2024-03-05</td>
+                                            <td class="col_hit">312</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">19</td>
+                                            <td class="col_category">
+                                                <span class="category_badge event">이벤트</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice6" class="title_link">
+                                                    <span class="title_text">신규 고객 대상 무료 컨설팅 이벤트</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">마케팅팀</td>
+                                            <td class="col_date">2024-03-03</td>
+                                            <td class="col_hit">789</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">18</td>
+                                            <td class="col_category">
+                                                <span class="category_badge service">서비스</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice7" class="title_link">
+                                                    <span class="title_text">장비 유지보수 서비스 개선 사항</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">서비스팀</td>
+                                            <td class="col_date">2024-03-01</td>
+                                            <td class="col_hit">567</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">17</td>
+                                            <td class="col_category">
+                                                <span class="category_badge notice">공지</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice8" class="title_link">
+                                                    <span class="title_text">개인정보처리방침 개정 안내</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">관리자</td>
+                                            <td class="col_date">2024-02-28</td>
+                                            <td class="col_hit">234</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">16</td>
+                                            <td class="col_category">
+                                                <span class="category_badge event">이벤트</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice9" class="title_link">
+                                                    <span class="title_text">연구장비 구매 시 추가 할인 혜택</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">마케팅팀</td>
+                                            <td class="col_date">2024-02-25</td>
+                                            <td class="col_hit">1,123</td>
+                                        </tr>
+                                        <tr class="notice_item">
+                                            <td class="col_no">15</td>
+                                            <td class="col_category">
+                                                <span class="category_badge service">서비스</span>
+                                            </td>
+                                            <td class="col_title">
+                                                <a href="#notice10" class="title_link">
+                                                    <span class="title_text">온라인 견적 시스템 업데이트</span>
+                                                </a>
+                                            </td>
+                                            <td class="col_author">개발팀</td>
+                                            <td class="col_date">2024-02-22</td>
+                                            <td class="col_hit">445</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Card View -->
+                            <div class="notice_card_view" id="cardView">
+                                <div class="card_grid">
+                                    <div class="notice_card priority">
+                                        <div class="card_header">
+                                            <span class="badge priority">중요</span>
+                                            <span class="category_badge notice">공지</span>
+                                            <span class="new_badge">NEW</span>
+                                        </div>
+                                        <div class="card_content">
+                                            <h3 class="card_title">
+                                                <a href="#notice1">2024년 3분기 시스템 정기점검 안내</a>
+                                            </h3>
+                                            <p class="card_desc">시스템 안정성 향상을 위한 정기점검을 실시합니다. 점검 시간 동안 서비스 이용이 제한될 수 있습니다.</p>
+                                        </div>
+                                        <div class="card_footer">
+                                            <span class="author">관리자</span>
+                                            <span class="date">2024-03-15</span>
+                                            <span class="hit">조회 1,234</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="notice_card">
+                                        <div class="card_header">
+                                            <span class="category_badge event">이벤트</span>
+                                        </div>
+                                        <div class="card_content">
+                                            <h3 class="card_title">
+                                                <a href="#notice2">봄맞이 연구장비 특가 이벤트 진행</a>
+                                            </h3>
+                                            <p class="card_desc">봄 시즌을 맞아 다양한 연구장비에 대한 특별 할인 혜택을 제공합니다.</p>
+                                        </div>
+                                        <div class="card_footer">
+                                            <span class="author">마케팅팀</span>
+                                            <span class="date">2024-03-12</span>
+                                            <span class="hit">조회 856</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="notice_card">
+                                        <div class="card_header">
+                                            <span class="category_badge service">서비스</span>
+                                        </div>
+                                        <div class="card_content">
+                                            <h3 class="card_title">
+                                                <a href="#notice3">새로운 장비 임대 서비스 출시</a>
+                                            </h3>
+                                            <p class="card_desc">단기/장기 임대 서비스를 새롭게 출시하여 더욱 유연한 장비 이용이 가능합니다.</p>
+                                        </div>
+                                        <div class="card_footer">
+                                            <span class="author">서비스팀</span>
+                                            <span class="date">2024-03-10</span>
+                                            <span class="hit">조회 642</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="notice_card">
+                                        <div class="card_header">
+                                            <span class="category_badge notice">공지</span>
+                                        </div>
+                                        <div class="card_content">
+                                            <h3 class="card_title">
+                                                <a href="#notice4">고객센터 운영시간 변경 안내</a>
+                                            </h3>
+                                            <p class="card_desc">고객 서비스 향상을 위해 고객센터 운영시간을 변경합니다.</p>
+                                        </div>
+                                        <div class="card_footer">
+                                            <span class="author">관리자</span>
+                                            <span class="date">2024-03-08</span>
+                                            <span class="hit">조회 423</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="notice_card">
+                                        <div class="card_header">
+                                            <span class="category_badge maintenance">점검</span>
+                                        </div>
+                                        <div class="card_content">
+                                            <h3 class="card_title">
+                                                <a href="#notice5">웹사이트 서버 점검 완료</a>
+                                            </h3>
+                                            <p class="card_desc">웹사이트 서버 정기점검이 성공적으로 완료되었습니다.</p>
+                                        </div>
+                                        <div class="card_footer">
+                                            <span class="author">시스템팀</span>
+                                            <span class="date">2024-03-05</span>
+                                            <span class="hit">조회 312</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="notice_card">
+                                        <div class="card_header">
+                                            <span class="category_badge event">이벤트</span>
+                                        </div>
+                                        <div class="card_content">
+                                            <h3 class="card_title">
+                                                <a href="#notice6">신규 고객 대상 무료 컨설팅 이벤트</a>
+                                            </h3>
+                                            <p class="card_desc">신규 고객을 대상으로 전문 컨설팅 서비스를 무료로 제공합니다.</p>
+                                        </div>
+                                        <div class="card_footer">
+                                            <span class="author">마케팅팀</span>
+                                            <span class="date">2024-03-03</span>
+                                            <span class="hit">조회 789</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="pagination_wrap">
+                            <div class="pagination">
+                                <button type="button" class="btn_page prev" disabled>이전</button>
+                                <div class="page_numbers">
+                                    <button type="button" class="btn_page active">1</button>
+                                    <button type="button" class="btn_page">2</button>
+                                    <button type="button" class="btn_page">3</button>
+                                    <span class="page_ellipsis">...</span>
+                                    <button type="button" class="btn_page">5</button>
+                                </div>
+                                <button type="button" class="btn_page next">다음</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </article>
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="footer_top">
+                <div class="inner">
+                    <div class="company_info">
+                        <h3>연구장비 구매 전문 플랫폼</h3>
+                        <address>
+                            서울특별시 강남구 테헤란로 123 (역삼동)<br>
+                            대표전화: 02-1234-5678 | 팩스: 02-1234-5679<br>
+                            사업자등록번호: 123-45-67890 | 대표자: 홍길동
+                        </address>
+                    </div>
+                    <dl class="contact_info">
+                        <dt>고객센터</dt>
+                        <dd>1588-1234</dd>
+                        <dd>평일 09:00-18:00</dd>
+                    </dl>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">사이트맵</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="inner">
+                    <div class="bot">
+                        <div class="certify">
+                            <ul>
+                                <li><a href="/company">회사소개</a></li>
+                                <li class="m_none"><a href="/brand">브랜드 정책</a></li>
+                                <li><a href="/privacy"><span>개인정보처리방침</span></a></li>
+                                <li class="m_none"><a href="/terms">이용약관</a></li>
+                                <li><a href="/api">API 서비스</a></li>
+                                <li class="m_none"><a href="/sitemap">서비스 전체보기</a></li>
+                            </ul>
+                            <address>연구장비매입센터 (06234) 서울특별시 강남구 테헤란로 123, 456호</address>
+                            <p class="copy">Copyright © 2024 Research Equipment Shop. All rights reserved.</p>
+                        </div>
+                        <div class="agency">
+                            <a href="https://www.msit.go.kr" target="_blank" title="새창"><img src="images/logo_msit.png" alt="과학기술정보통신부"></a>
+                            <a href="https://www.nfec.go.kr" target="_blank" title="새창"><img src="images/logo_nfec.png" alt="국가연구시설장비진흥센터"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Notice page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // View toggle functionality
+            const viewButtons = document.querySelectorAll('.btn_view');
+            const listView = document.getElementById('listView');
+            const cardView = document.getElementById('cardView');
+            
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const viewType = this.dataset.view;
+                    
+                    // Update button states
+                    viewButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Toggle views
+                    if (viewType === 'list') {
+                        listView.classList.add('active');
+                        cardView.classList.remove('active');
+                    } else {
+                        listView.classList.remove('active');
+                        cardView.classList.add('active');
+                    }
+                });
+            });
+            
+            // Filter tabs functionality
+            const filterTabs = document.querySelectorAll('.filter_tabs .tab_list li');
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const category = this.querySelector('a').dataset.category;
+                    
+                    // Update tab states
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter notices (this would be implemented with actual data)
+                    console.log('Filter by category:', category);
+                });
+            });
+            
+            // Search form functionality
+            const searchForm = document.getElementById('noticeSearchForm');
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const searchType = formData.get('search_type');
+                const keyword = formData.get('keyword');
+                
+                console.log('Search:', searchType, keyword);
+                // Implement actual search functionality
+            });
+            
+            // Pagination functionality
+            const pageButtons = document.querySelectorAll('.btn_page');
+            pageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.classList.contains('active') || this.disabled) return;
+                    
+                    // Update active page
+                    document.querySelectorAll('.btn_page').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Load page content (this would be implemented with actual data)
+                    console.log('Load page:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

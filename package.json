@@ -1,0 +1,44 @@
+{
+  "name": "09all-v2",
+  "version": "2.0.0",
+  "description": "09all 연구장비 매입 플랫폼 - Next.js 14 리모델링",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
+    "@prisma/client": "^5.11.0",
+    "@tanstack/react-query": "^5.28.0",
+    "next-auth": "^4.24.7",
+    "react-hook-form": "^7.51.0",
+    "zod": "^3.22.4",
+    "zustand": "^4.5.2",
+    "sharp": "^0.33.3",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.69",
+    "@types/react-dom": "^18.2.22",
+    "typescript": "^5.4.3",
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.38",
+    "autoprefixer": "^10.4.19",
+    "prisma": "^5.11.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
+

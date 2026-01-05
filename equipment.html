@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="연구장비매입센터 장비구매 페이지 - 최신 연구실험장비를 합리적인 가격에 구매할 수 있습니다.">
+    <meta name="keywords" content="연구장비구매, 실험장비구매, 분석장비, 측정장비, 가공장비, 안전장비">
+    <meta name="format-detection" content="telephone=no">
+    <title>장비구매 - 기자재의 모든곳</title>
+    <link rel="shortcut icon" href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/equipment.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <a href="#container" class="skip">본문바로가기</a>
+    
+    <div id="wrap">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="logo_area">
+                    <h1 class="site_id">
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" title="메인 바로가기">
+                            <img src="images/logo_simple.svg" alt="기자재의모든것">
+                        </a>
+                    </h1>
+                    
+                    <div class="srch_lnb">
+                        <div class="srch_inner">
+                            <form action="/search" id="srchForm" name="srchForm">
+                                <fieldset class="srch_field">
+                                    <legend>전체 검색 입력폼</legend>
+                                    <label class="srch_label">
+                                        <span class="blind">전체 검색</span>
+                                        <input type="text" id="keyword" autocomplete="off" 
+                                               title="검색어를 입력하세요." 
+                                               placeholder="원하는 연구장비를 검색해보세요" value="">
+                                    </label>
+                                    <button type="submit" class="btn_srch" title="검색">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn_lnb" id="mainMenuOpenBtn">
+                    <span>메뉴열기</span>
+                </button>
+            </div>
+            
+            <!-- Navigation -->
+            <nav id="mainHeaderMenuArea">
+                <ul class="depth01">
+                    <!-- 활성화시 'act' 클래스 추가 -->
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html">회사소개</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_1"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html" title="회사개요">회사개요</a></li>
+                            <li id="depth02_menu_2"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/history.html" title="연혁">연혁</a></li>
+                            <li id="depth02_menu_3"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/location.html" title="오시는길">오시는길</a></li>
+                            <li id="depth02_menu_4"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="문의하기">문의하기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html">문의하기</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_5"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="일반문의">일반문의</a></li>
+                            <li id="depth02_menu_6"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="견적문의">견적문의</a></li>
+                            <li id="depth02_menu_7"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/kakao.html" title="카톡문의">카톡문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html">장비매입</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_8"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="분석장비">분석장비</a></li>
+                            <li id="depth02_menu_9"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="계측장비">계측장비</a></li>
+                            <li id="depth02_menu_10"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="기타실험장비">기타실험장비</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/consulting">컨설팅</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_11"><a href="/consulting/selection" title="장비선정">장비선정</a></li>
+                            <li id="depth02_menu_12"><a href="/consulting/installation" title="설치지원">설치지원</a></li>
+                            <li id="depth02_menu_13"><a href="/consulting/training" title="교육훈련">교육훈련</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/support">고객지원</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_14"><a href="/support/inquiry" title="문의하기">문의하기</a></li>
+                            <li id="depth02_menu_15"><a href="/support/quote" title="견적요청">견적요청</a></li>
+                            <li id="depth02_menu_16"><a href="/support/faq" title="자주묻는질문">자주묻는질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="quick_set">
+                    <h3 class="tit">퀵메뉴 설정</h3>
+                    <button type="button" onclick="fn_quickSet('close');" class="btn_lnb_close">퀵메뉴 설정 닫기</button>
+                    
+                    <form action="/user/quick/menu/add" class="quicListAddFrm" id="menuAddFrm" method="post" name="menuAddFrm">
+                        <fieldset>
+                            <legend>퀵메뉴 설정 폼</legend>
+                            
+                            <!-- 현재 퀵메뉴 -->
+                            <dl class="cur_quick">
+                                <dt><span class="blind">현재 </span><var>&nbsp;</var>님의 퀵메뉴</dt>
+                                <!-- 값이 들어오면, 순차적으로 'fill' 클래스 추가 -->
+                                <!-- 'ico01' ~ 'ico14' 로 아이콘 변경 -->
+                                <dd class="fill ico3 numSet" id="default1823">
+                                    <strong>장비구매</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1823','장비구매');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[0].menuCd" value="1823">
+                                    <input type="hidden" class="menuSort" name="menus[0].sortNo" value="1">
+                                </dd>
+                            </dl>
+                            
+                            <div class="q_btn_box">
+                                <button type="reset" onclick="fn_quick_reset()" title="설정 초기화">초기화</button>
+                                <button type="button" class="submit" onclick="fn_quick_submit()" title="설정 저장">저장</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                
+         
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <article id="container">
+            <h2 class="blind">본문</h2>
+            
+            <!-- Equipment Purchase Section -->
+            <section class="equipment_section">
+                <div class="inner">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="location" id="menuNaviArea">
+                        <ul class="loc_dep01">
+                            <li class="not_navi_dep"><a href="/" class="loc_tit" title="메인으로 바로가기">메인</a></li>
+                            <li class="not_navi_dep"><a href="/equipment" class="loc_tit" title="링크 이동">장비구매</a></li>
+                            <li class="">
+                                <a href="/equipment/analytical" class="loc_tit arrow" title="하위메뉴 열기">분석장비</a>
+                                <ul class="loc_dep02">
+                                    <li class="curr" id="loc_dep02_menu_1">
+                                        <a href="/equipment/analytical">분석장비</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_2">
+                                        <a href="/equipment/measurement">측정장비</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_3">
+                                        <a href="/equipment/processing">가공장비</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_4">
+                                        <a href="/equipment/safety">안전장비</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Content -->
+                    <section id="content">
+                        <header class="header">
+                            <h2 class="tit">장비구매</h2>
+                        </header>
+                        
+                        <h2 class="tit_page mb20">연구장비 구매</h2>
+                        <p class="tit_page_s">최신 연구장비를 합리적인 가격에 구매할 수 있습니다.</p>
+                    
+                    <!-- Tab Menu -->
+                    <div class="tab_w">
+                        <a href="javascript:;" onclick="fn_changeTab('analytical')" class="active">분석장비</a>
+                        <a href="javascript:;" onclick="fn_changeTab('measurement')" class="">측정장비</a>
+                        <a href="javascript:;" onclick="fn_changeTab('processing')" class="">가공장비</a>
+                        <a href="javascript:;" onclick="fn_changeTab('safety')" class="">안전장비</a>
+                    </div>
+                    
+                    <article class="section">
+                        <!-- Search Form -->
+                        <form id="srchFrm" class="srch_box" action="/equipment/search" method="POST">
+                            <input id="categoryType" name="categoryType" type="hidden" value="analytical">
+                            <input id="sortParams" name="sortParams" type="hidden" value="">
+                            <input id="sort" name="sort" type="hidden" value="equipSeq">
+                            <input id="sortOrder" name="sortOrder" type="hidden" value="desc">
+                            <input id="viewType" name="viewType" type="hidden" value="card">
+                            <fieldset>
+                                <legend>조건별 장비검색</legend>
+                                <div class="terms">
+                                    <div class="row type_sel">
+                                        <select id="srchBranchCd" name="srchBranchCd" style="width:140px;" title="표준분류선택">
+                                            <option value="">분류별</option>
+                                            <option value="A">분석장비</option>
+                                            <option value="B">측정장비</option>
+                                            <option value="C">가공장비</option>
+                                            <option value="D">안전장비</option>
+                                        </select>
+                                        <select id="srchManufacturer" name="srchManufacturer" style="width:140px;" title="제조사선택">
+                                            <option value="">제조사별</option>
+                                            <option value="Agilent">Agilent</option>
+                                            <option value="Thermo">Thermo Fisher</option>
+                                            <option value="Waters">Waters</option>
+                                            <option value="Shimadzu">Shimadzu</option>
+                                            <option value="Bruker">Bruker</option>
+                                        </select>
+                                        <select id="srchPriceRange" name="srchPriceRange" style="width:140px;" title="가격대선택">
+                                            <option value="">가격대별</option>
+                                            <option value="1">1억원 이하</option>
+                                            <option value="2">1-5억원</option>
+                                            <option value="3">5-10억원</option>
+                                            <option value="4">10억원 이상</option>
+                                        </select>
+                                        <select id="srchCondition" name="srchCondition" style="width:140px;" title="상태별선택">
+                                            <option value="">상태별</option>
+                                            <option value="new">신품</option>
+                                            <option value="refurbished">리퍼비시</option>
+                                            <option value="demo">데모용</option>
+                                        </select>
+                                        <select id="srchAvailability" name="srchAvailability" style="width:140px;" title="재고상태선택">
+                                            <option value="">재고상태</option>
+                                            <option value="instock">재고보유</option>
+                                            <option value="preorder">예약주문</option>
+                                            <option value="custom">맞춤제작</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="year_sel">
+                                            <em class="tit">제조년도</em>
+                                            <select id="srchManufactureStartYear" name="srchManufactureStartYear" style="width:100px;" title="시작년도">
+                                                <option value="" selected="selected">전체</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                            </select>
+                                            &nbsp;~&nbsp;
+                                            <select id="srchManufactureEndYear" name="srchManufactureEndYear" style="width:100px;" title="종료년도">
+                                                <option value="" selected="selected">전체</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                            </select>
+                                            &nbsp;&nbsp;
+                                            <select id="srchWarranty" name="srchWarranty" style="width:124px;" title="보증기간선택">
+                                                <option value="">보증기간</option>
+                                                <option value="1">1년</option>
+                                                <option value="2">2년</option>
+                                                <option value="3">3년 이상</option>
+                                            </select>
+                                        </div>
+                                        <div class="terms_window">
+                                            <label for="keywords">검색어</label>
+                                            <input id="keywords" name="keywords" style="width:300px;" type="text" value="" placeholder="장비명, 모델명, 제조사 등을 입력하세요">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn_box">
+                                    <button type="submit" class="btn_srch_c">찾기</button>
+                                    <button type="reset" class="btn_reset">검색초기화</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                        
+                        <!-- Result Info -->
+                        <div class="result_info">
+                            <p class="yellow_box02 mb20">※ 모든 장비는 품질보증과 함께 제공되며, 전문 기술지원 서비스를 받으실 수 있습니다.</p>
+                            
+                            <p class="txt">
+                                총 <em class="num">247</em>개
+                            </p>
+                            
+                            <div class="eq_grade_box">
+                                <button type="button" id="eqCondition">장비상태안내</button>
+                                <div class="t_tip" style="display:none" id="eqConditionGuide">
+                                    <dl>
+                                        <dt class="type_new">신품</dt>
+                                        <dd>제조사에서 직접 공급하는 새 제품</dd>
+                                        <dt class="type_refurb">리퍼비시</dt>
+                                        <dd>제조사에서 재정비한 검증된 중고제품</dd>
+                                        <dt class="type_demo">데모용</dt>
+                                        <dd>전시 또는 데모용으로 사용된 제품</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            
+                            <div class="sort">
+                                <a href="javascript:;" onclick="fn_changeSort('price')" class="">가격순</a>
+                                <a href="javascript:;" onclick="fn_changeSort('popularity')" class="">인기순</a>
+                                <a href="javascript:;" onclick="fn_changeSort('latest')" class="active">최신순</a>
+                                <a href="javascript:;" onclick="fn_changeSort('rating')" class="">평점순</a>
+                                <div class="view_change">
+                                    <a href="javascript:;" onclick="changeViewType('list')" class="lst" title="리스트형 보기">리스트형 보기</a>
+                                    <a href="javascript:;" onclick="changeViewType('card')" class="thumb active" title="카드형 보기">카드형 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Equipment Cards -->
+                        <div class="equipment_grid" id="cardView">
+                            <div class="equipment_card">
+                                <div class="card_badge">신품</div>
+                                <div class="card_img">
+                                    <img src="images/equipment01.jpg" alt="LC-MS/MS 시스템">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">액체크로마토그래피질량분석기</div>
+                                    <h4 class="card_title">LC-MS/MS 시스템</h4>
+                                    <p class="card_desc">Agilent 6470 Triple Quad LC/MS</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: Agilent</span>
+                                        <span class="spec">제조년도: 2024</span>
+                                        <span class="spec">보증: 2년</span>
+                                    </div>
+                                    <div class="card_price">₩ 850,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating_num">(4.8)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="equipment_card">
+                                <div class="card_badge refurbished">리퍼비시</div>
+                                <div class="card_img">
+                                    <img src="images/equipment02.jpg" alt="GC-MS 시스템">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">가스크로마토그래피질량분석기</div>
+                                    <h4 class="card_title">GC-MS 시스템</h4>
+                                    <p class="card_desc">Thermo Fisher TSQ 9000</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: Thermo Fisher</span>
+                                        <span class="spec">제조년도: 2023</span>
+                                        <span class="spec">보증: 1년</span>
+                                    </div>
+                                    <div class="card_price">₩ 620,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★☆</span>
+                                        <span class="rating_num">(4.5)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="equipment_card">
+                                <div class="card_badge">신품</div>
+                                <div class="card_img">
+                                    <img src="images/equipment03.jpg" alt="NMR 분광기">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">핵자기공명분광기</div>
+                                    <h4 class="card_title">NMR 분광기</h4>
+                                    <p class="card_desc">Bruker AVANCE NEO 400MHz</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: Bruker</span>
+                                        <span class="spec">제조년도: 2024</span>
+                                        <span class="spec">보증: 3년</span>
+                                    </div>
+                                    <div class="card_price">₩ 1,200,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating_num">(4.9)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="equipment_card">
+                                <div class="card_badge demo">데모용</div>
+                                <div class="card_img">
+                                    <img src="images/equipment04.jpg" alt="XRD 분석기">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">엑스선회절분석기</div>
+                                    <h4 class="card_title">XRD 분석기</h4>
+                                    <p class="card_desc">Rigaku MiniFlex 600</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: Rigaku</span>
+                                        <span class="spec">제조년도: 2023</span>
+                                        <span class="spec">보증: 1년</span>
+                                    </div>
+                                    <div class="card_price">₩ 180,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★☆</span>
+                                        <span class="rating_num">(4.3)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="equipment_card">
+                                <div class="card_badge">신품</div>
+                                <div class="card_img">
+                                    <img src="images/equipment05.jpg" alt="FTIR 분광기">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">적외선분광기</div>
+                                    <h4 class="card_title">FTIR 분광기</h4>
+                                    <p class="card_desc">PerkinElmer Frontier MIR</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: PerkinElmer</span>
+                                        <span class="spec">제조년도: 2024</span>
+                                        <span class="spec">보증: 2년</span>
+                                    </div>
+                                    <div class="card_price">₩ 95,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★☆</span>
+                                        <span class="rating_num">(4.6)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="equipment_card">
+                                <div class="card_badge">신품</div>
+                                <div class="card_img">
+                                    <img src="images/equipment06.jpg" alt="UV-Vis 분광기">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">자외선가시광선분광기</div>
+                                    <h4 class="card_title">UV-Vis 분광기</h4>
+                                    <p class="card_desc">Shimadzu UV-2600i</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: Shimadzu</span>
+                                        <span class="spec">제조년도: 2024</span>
+                                        <span class="spec">보증: 2년</span>
+                                    </div>
+                                    <div class="card_price">₩ 45,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★☆</span>
+                                        <span class="rating_num">(4.4)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="equipment_card">
+                                <div class="card_badge refurbished">리퍼비시</div>
+                                <div class="card_img">
+                                    <img src="images/equipment07.jpg" alt="ICP-MS 시스템">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">유도결합플라즈마질량분석기</div>
+                                    <h4 class="card_title">ICP-MS 시스템</h4>
+                                    <p class="card_desc">Agilent 7900 ICP-MS</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: Agilent</span>
+                                        <span class="spec">제조년도: 2022</span>
+                                        <span class="spec">보증: 1년</span>
+                                    </div>
+                                    <div class="card_price">₩ 780,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating_num">(4.7)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="equipment_card">
+                                <div class="card_badge">신품</div>
+                                <div class="card_img">
+                                    <img src="images/equipment08.jpg" alt="SEM 전자현미경">
+                                </div>
+                                <div class="card_info">
+                                    <div class="card_category">주사전자현미경</div>
+                                    <h4 class="card_title">SEM 전자현미경</h4>
+                                    <p class="card_desc">JEOL JSM-IT500HR</p>
+                                    <div class="card_specs">
+                                        <span class="spec">제조사: JEOL</span>
+                                        <span class="spec">제조년도: 2024</span>
+                                        <span class="spec">보증: 2년</span>
+                                    </div>
+                                    <div class="card_price">₩ 320,000,000</div>
+                                    <div class="card_rating">
+                                        <span class="stars">★★★★☆</span>
+                                        <span class="rating_num">(4.5)</span>
+                                    </div>
+                                    <div class="card_actions">
+                                        <a href="#" class="btn_detail">상세보기</a>
+                                        <a href="#" class="btn_quote">견적요청</a>
+                                        <button class="btn_wishlist">♡</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="paginate pagging" id="pageing">
+                            <a href="#" class="btn_pag prev02">처음으로</a>
+                            <a href="#" class="btn_pag prev">이전</a>
+                            <a href="#" class="first active"><strong>1</strong></a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#">7</a>
+                            <a href="#">8</a>
+                            <a href="#">9</a>
+                            <a href="#">10</a>
+                            <a href="#" class="btn_pag next">다음</a>
+                            <a href="#" class="btn_pag next02">마지막으로</a>
+                        </div>
+                    </article>
+                    
+                    <a href="/download/equipment-guide" class="btn_down_guide" title="장비구매 가이드" rel="noopener noreferrer" target="_blank">장비구매 가이드 <span>다운로드</span></a>
+                </section>
+                </div>
+            </section>
+        </article>
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="footer_top">
+                <div class="inner">
+                    <div class="company_info">
+                        <h3>연구장비 구매 전문 플랫폼</h3>
+                        <address>
+                            서울특별시 강남구 테헤란로 123 (역삼동)<br>
+                            대표전화: 02-1234-5678 | 팩스: 02-1234-5679<br>
+                            사업자등록번호: 123-45-67890 | 대표자: 홍길동
+                        </address>
+                    </div>
+                    <dl class="contact_info">
+                        <dt>고객센터</dt>
+                        <dd>1588-1234</dd>
+                        <dd>평일 09:00-18:00</dd>
+                    </dl>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">사이트맵</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="inner">
+                    <div class="bot">
+                        <div class="copy">
+                            <p>Copyright © 2024 연구장비 구매 전문 플랫폼. All rights reserved.</p>
+                        </div>
+                        <div class="certify">
+                            <p>인증마크</p>
+                        </div>
+                        <div class="agency">
+                            <img src="images/logo_msit.png" alt="과학기술정보통신부">
+                            <img src="images/logo_nfec.png" alt="국가연구시설장비진흥센터">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Tab switching functionality
+        function fn_changeTab(tabType) {
+            document.querySelectorAll('.tab_w a').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('categoryType').value = tabType;
+        }
+        
+        // Sort functionality
+        function fn_changeSort(sortType) {
+            document.querySelectorAll('.sort a').forEach(sort => sort.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('sort').value = sortType;
+        }
+        
+        // View type change
+        function changeViewType(viewType) {
+            document.querySelectorAll('.view_change a').forEach(view => view.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('viewType').value = viewType;
+        }
+        
+        // Equipment condition tooltip
+        document.getElementById('eqCondition').addEventListener('click', function() {
+            const tooltip = document.getElementById('eqConditionGuide');
+            tooltip.style.display = tooltip.style.display === 'none' ? 'block' : 'none';
+        });
+        
+        // Wishlist functionality
+        document.querySelectorAll('.btn_wishlist').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                this.textContent = this.classList.contains('active') ? '♥' : '♡';
+            });
+        });
+    </script>
+</body>
+</html>

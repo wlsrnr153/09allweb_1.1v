@@ -1,0 +1,134 @@
+// Prisma Schema for 09all Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  slug        String      @unique
+  description String?
+  icon        String?
+  order       Int         @default(0)
+  equipments  Equipment[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("categories")
+}
+
+model Equipment {
+  id            String    @id @default(cuid())
+  title         String
+  slug          String    @unique
+  brand         String
+  model         String
+  category      Category  @relation(fields: [categoryId], references: [id])
+  categoryId    String
+  
+  // 가격 정보
+  price         Int
+  priceUnit     String    @default("KRW")
+  
+  // 상태 정보
+  condition     String    // new, refurbished, demo
+  status        String    @default("available") // available, sold, reserved
+  year          Int
+  warranty      String?
+  
+  // 재고
+  stock         Int       @default(1)
+  
+  // 상세 정보
+  description   String    @db.Text
+  specifications Json?    // {key: value} 형태
+  features      String[]  // 특징 배열
+  
+  // 이미지
+  thumbnail     String
+  images        String[]
+  
+  // 메타 정보
+  viewCount     Int       @default(0)
+  isPublished   Boolean   @default(true)
+  
+  // SEO
+  metaTitle     String?
+  metaDescription String?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([categoryId])
+  @@index([slug])
+  @@index([brand])
+  @@map("equipment")
+}
+
+model Portfolio {
+  id            String    @id @default(cuid())
+  clientName    String
+  title         String
+  equipmentList String[]
+  images        String[]
+  description   String?   @db.Text
+  completedAt   DateTime
+  isPublished   Boolean   @default(true)
+  order         Int       @default(0)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("portfolios")
+}
+
+model Inquiry {
+  id            String    @id @default(cuid())
+  name          String
+  company       String?
+  phone         String
+  email         String
+  category      String
+  equipmentId   String?
+  message       String    @db.Text
+  status        String    @default("pending") // pending, contacted, completed
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("inquiries")
+}
+
+model FAQ {
+  id            String    @id @default(cuid())
+  category      String
+  question      String
+  answer        String    @db.Text
+  order         Int       @default(0)
+  isPublished   Boolean   @default(true)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("faqs")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String
+  role          String    @default("admin")
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("users")
+}
+

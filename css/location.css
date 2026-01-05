@@ -1,0 +1,897 @@
+/* Location Page Styles */
+
+/* Location Section */
+.location_section {
+    padding: 2rem 0 4rem;
+    background: #fff;
+}
+
+.location_section .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Breadcrumb Navigation */
+.location {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    border: 1px solid #e1e8ff;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.loc_dep01 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+.loc_dep01 li {
+    position: relative;
+}
+
+.loc_dep01 li:not(:last-child)::after {
+    content: '>';
+    margin-left: 0.5rem;
+    color: #999;
+    font-weight: 600;
+}
+
+.loc_tit {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.loc_tit:hover {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+.loc_tit.arrow::after {
+    content: '▼';
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+}
+
+.loc_dep02 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e1e8ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 100;
+    display: none;
+    margin-top: 0.5rem;
+}
+
+.loc_dep01 li:hover .loc_dep02 {
+    display: block;
+}
+
+.loc_dep02 li {
+    margin: 0;
+    padding: 0;
+}
+
+.loc_dep02 a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.loc_dep02 a:hover {
+    background: #f8f9ff;
+    color: #667eea;
+}
+
+.loc_dep02 .curr a {
+    background: #667eea;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Page Header */
+.header {
+    margin-bottom: 2rem;
+}
+
+.tit {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Location Intro */
+.location_intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tit_page {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.tit_page_s {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+/* Address Section */
+.address_section {
+    margin-bottom: 4rem;
+}
+
+.address_card {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    border: 2px solid #e1e8ff;
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+}
+
+.address_icon {
+    font-size: 4rem;
+    color: #667eea;
+    flex-shrink: 0;
+}
+
+.address_info h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.address_info address {
+    font-size: 1.3rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: normal;
+}
+
+.address_details p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.address_details strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Section Titles */
+.section_title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333;
+    position: relative;
+}
+
+.section_title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+/* Map Section */
+.map_section {
+    margin-bottom: 4rem;
+}
+
+.map_container {
+    background: #fff;
+    border: 2px solid #e1e8ff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+}
+
+.kakao_map {
+    width: 100%;
+    height: 400px;
+    position: relative;
+}
+
+.map_controls {
+    padding: 1.5rem;
+    background: #f8f9ff;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.map_btn {
+    padding: 0.75rem 1.5rem;
+    background: #667eea;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map_btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Transportation Section */
+.transportation_section {
+    margin-bottom: 4rem;
+}
+
+.transport_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.transport_card {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    border: 2px solid #e1e8ff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.transport_card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.transport_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+}
+
+.transport_icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.transport_card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.transport_info {
+    text-align: left;
+}
+
+.line_info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e1e8ff;
+}
+
+.line_number {
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.line_2 {
+    background: #00a651;
+}
+
+.line_9 {
+    background: #b7c4a8;
+}
+
+.station_name {
+    font-weight: 600;
+    color: #333;
+}
+
+.exit_number {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.walking_time {
+    color: #667eea;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+}
+
+.bus_info {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e1e8ff;
+}
+
+.bus_info h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.bus_info p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.bus_stop {
+    color: #667eea;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+}
+
+.airport_bus {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e1e8ff;
+}
+
+.airport_bus h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.airport_bus p {
+    color: #666;
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.travel_time {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.taxi_info {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e1e8ff;
+}
+
+.taxi_info h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.taxi_info p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Parking Section */
+.parking_section {
+    margin-bottom: 4rem;
+}
+
+.parking_info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.parking_card {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    border: 2px solid #e1e8ff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.parking_card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parking_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+}
+
+.parking_icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.parking_card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.parking_card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.parking_card li {
+    color: #666;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.parking_card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Facilities Section */
+.facilities_section {
+    margin-bottom: 4rem;
+}
+
+.facilities_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.facility_card {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    border: 2px solid #e1e8ff;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.facility_card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.facility_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+}
+
+.facility_icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.facility_card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.facility_card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.facility_card li {
+    color: #666;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.facility_card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Contact Info Section */
+.contact_info_section {
+    margin-bottom: 4rem;
+}
+
+.contact_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact_card {
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    border: 2px solid #e1e8ff;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.contact_card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+    border-color: #667eea;
+}
+
+.contact_icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact_card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.contact_number {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.contact_hours {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Visit CTA */
+.visit_cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 3rem;
+}
+
+.visit_cta h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.visit_cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.cta_buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn_primary,
+.btn_secondary {
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    min-width: 150px;
+    text-align: center;
+}
+
+.btn_primary {
+    background: #fff;
+    color: #667eea;
+    border: 2px solid #fff;
+}
+
+.btn_primary:hover {
+    background: transparent;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn_secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn_secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .location_section .inner {
+        padding: 0 1.5rem;
+    }
+    
+    .tit_page {
+        font-size: 2.5rem;
+    }
+    
+    .address_card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .transport_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .parking_info {
+        grid-template-columns: 1fr;
+    }
+    
+    .facilities_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .location_section .inner {
+        padding: 0 1rem;
+    }
+    
+    .tit_page {
+        font-size: 2rem;
+    }
+    
+    .tit_page_s {
+        font-size: 1rem;
+    }
+    
+    .address_card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .address_icon {
+        font-size: 3rem;
+    }
+    
+    .address_info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .address_info address {
+        font-size: 1.1rem;
+    }
+    
+    .section_title {
+        font-size: 2rem;
+    }
+    
+    .kakao_map {
+        height: 300px;
+    }
+    
+    .map_controls {
+        padding: 1rem;
+    }
+    
+    .map_btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .transport_grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .transport_card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .parking_card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .facilities_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .facility_card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .contact_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact_card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .visit_cta {
+        padding: 2rem 1.5rem;
+    }
+    
+    .visit_cta h3 {
+        font-size: 1.5rem;
+    }
+    
+    .cta_buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .location_section {
+        padding: 1rem 0 2rem;
+    }
+    
+    .tit_page {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+    
+    .address_card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .address_icon {
+        font-size: 2.5rem;
+    }
+    
+    .address_info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .address_info address {
+        font-size: 1rem;
+    }
+    
+    .kakao_map {
+        height: 250px;
+    }
+    
+    .map_controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .map_btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .transport_card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .parking_card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .facility_card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .contact_card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .visit_cta {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Animation delays for staggered effect */
+.transport_card:nth-child(1) { animation-delay: 0.1s; }
+.transport_card:nth-child(2) { animation-delay: 0.2s; }
+.transport_card:nth-child(3) { animation-delay: 0.3s; }
+.transport_card:nth-child(4) { animation-delay: 0.4s; }
+
+.parking_card:nth-child(1) { animation-delay: 0.1s; }
+.parking_card:nth-child(2) { animation-delay: 0.2s; }
+.parking_card:nth-child(3) { animation-delay: 0.3s; }
+
+.facility_card:nth-child(1) { animation-delay: 0.1s; }
+.facility_card:nth-child(2) { animation-delay: 0.2s; }
+.facility_card:nth-child(3) { animation-delay: 0.3s; }
+.facility_card:nth-child(4) { animation-delay: 0.4s; }
+
+.contact_card:nth-child(1) { animation-delay: 0.1s; }
+.contact_card:nth-child(2) { animation-delay: 0.2s; }
+.contact_card:nth-child(3) { animation-delay: 0.3s; }
+.contact_card:nth-child(4) { animation-delay: 0.4s; }
+
