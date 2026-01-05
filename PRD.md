@@ -1402,12 +1402,13 @@ SENTRY_DSN="..."
 ## 📝 개발 진행 현황
 
 ### 2026.01.05 - Phase 1 완료 ✅
-- ✅ Next.js 14 프로젝트 초기 셋업 완료 (App Router, TypeScript, Tailwind CSS)
+- ✅ Next.js 15.1.3 프로젝트 초기 셋업 완료 (App Router, TypeScript, Tailwind CSS)
 - ✅ Prisma 스키마 작성 완료 (Equipment, Portfolio, Category, Inquiry, FAQ, User 모델)
 - ✅ 기본 레이아웃 컴포넌트 개발 (Header, Footer, FloatingButtons)
 - ✅ 카카오톡 연동 유틸리티 구현 (openKakaoChannel, shareToKakao)
 - ✅ 메인 페이지 UI 구현 (Hero, Categories, Featured Equipment, Services)
 - ✅ TypeScript 타입 정의 완료 (Equipment, Portfolio, Inquiry, FAQ 등)
+- ✅ **Vercel 배포 오류 수정**: Pretendard 폰트 CDN 전환, Next.js/React 최신 버전 업데이트
 - **다음 단계**: 장비안내 페이지 개발 (필터링, 검색, 무한 스크롤)
 - **설치 방법**: `npm install` → 환경변수 설정 → `npx prisma generate` → `npm run dev`
 
