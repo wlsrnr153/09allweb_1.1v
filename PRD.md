@@ -1401,16 +1401,42 @@ SENTRY_DSN="..."
 
 ## 📝 개발 진행 현황
 
+### 2026.01.07 - Phase 2 완료 ✅
+**전체 플로우 구성 완료**
+- ✅ 샘플 데이터 생성 (장비 12개, 매입 실적 6개, FAQ 10개)
+- ✅ 장비 안내 페이지 개발 (필터링, 검색, 정렬, 무한 스크롤)
+- ✅ 장비 상세 페이지 개발 (이미지 갤러리, 사양 정보, 카카오톡 연동)
+- ✅ 매입 실적 페이지 개발 (그리드 레이아웃, 모달 상세보기)
+- ✅ 문의 폼 페이지 개발 (유효성 검사, 카카오톡 연동)
+- ✅ FAQ 페이지 개발 (아코디언, 카테고리 필터, 검색)
+- ✅ 회사소개 페이지 마이그레이션
+- ✅ 오시는 길 페이지 마이그레이션
+- ✅ 헤더 네비게이션 업데이트 (FAQ 링크 추가)
+- **다음 단계**: 관리자 시스템 개발 또는 실제 API 연동
+
 ### 2026.01.05 - Phase 1 완료 ✅
-- ✅ Next.js 15.1.3 프로젝트 초기 셋업 완료 (App Router, TypeScript, Tailwind CSS)
-- ✅ Prisma 스키마 작성 완료 (Equipment, Portfolio, Category, Inquiry, FAQ, User 모델)
+- ✅ Next.js 15.5.9 프로젝트 초기 셋업 완료 (App Router, TypeScript, Tailwind CSS)
+- ✅ Prisma 스키마 작성 완료 (Equipment, Portfolio, Category, Inquiry, FAQ 모델)
 - ✅ 기본 레이아웃 컴포넌트 개발 (Header, Footer, FloatingButtons)
 - ✅ 카카오톡 연동 유틸리티 구현 (openKakaoChannel, shareToKakao)
 - ✅ 메인 페이지 UI 구현 (Hero, Categories, Featured Equipment, Services)
 - ✅ TypeScript 타입 정의 완료 (Equipment, Portfolio, Inquiry, FAQ 등)
-- ✅ **Vercel 배포 오류 수정**: Pretendard 폰트 CDN 전환, Next.js/React 최신 버전 업데이트
-- **다음 단계**: 장비안내 페이지 개발 (필터링, 검색, 무한 스크롤)
-- **설치 방법**: `npm install` → 환경변수 설정 → `npx prisma generate` → `npm run dev`
+- ✅ Vercel 배포 오류 수정 (Pretendard 폰트 CDN 전환, React 18.3.1 호환성 확보)
+
+### 설치 및 실행 방법
+```bash
+# 의존성 설치
+npm install
+
+# 환경변수 설정 (.env.local 파일 생성)
+# DATABASE_URL, NEXT_PUBLIC_KAKAO_APP_KEY 등
+
+# Prisma 클라이언트 생성
+npx prisma generate
+
+# 개발 서버 실행
+npm run dev
+```
 
 ---
 
