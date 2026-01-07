@@ -16,21 +16,21 @@ export default function HomePage() {
       description: '20년 전통의 신뢰할 수 있는 연구장비 전문 기업',
       cta: '장비 둘러보기',
       link: '/equipment',
-      bg: 'from-primary-600 to-primary-800',
+      bg: 'from-primary-600 via-primary-700 to-primary-800',
     },
     {
       title: '전문가가 추천하는\n검증된 분석장비',
       description: 'Agilent, Thermo Fisher 등 글로벌 브랜드 정품 공급',
       cta: '견적 문의하기',
       link: '/contact',
-      bg: 'from-secondary-500 to-secondary-700',
+      bg: 'from-cyan-600 via-blue-600 to-blue-700',
     },
     {
       title: '합리적인 가격의\n리퍼비시 장비',
       description: '전문 기술진의 철저한 점검을 거친 중고 장비',
       cta: '실적 보기',
       link: '/portfolio',
-      bg: 'from-primary-700 to-primary-900',
+      bg: 'from-indigo-600 via-indigo-700 to-purple-700',
     },
   ]
 
