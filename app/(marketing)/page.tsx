@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { sampleEquipment, sampleCategories } from '@/lib/data/sample-equipment'
 import { samplePortfolio } from '@/lib/data/sample-portfolio'
 import EquipmentCard from '@/components/equipment/EquipmentCard'
+import { openKakaoChannel } from '@/lib/kakao'
 
 export default function HomePage() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -125,6 +126,38 @@ export default function HomePage() {
                 장비 검색
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 카카오톡 상담 강조 배너 */}
+      <section className="bg-gradient-to-r from-[#FEE500] to-[#FDD835] py-6 md:py-8">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <svg className="w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z"
+                    fill="#3C1E1E"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">
+                  카카오톡으로 빠르게 상담받으세요!
+                </h3>
+                <p className="text-sm md:text-base text-gray-700">
+                  실시간 견적 문의 및 상담 가능 · 평일 09:00-18:00
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={openKakaoChannel}
+              className="px-6 md:px-8 py-3 md:py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl whitespace-nowrap text-sm md:text-base"
+            >
+              카카오톡 상담 시작하기 →
+            </button>
           </div>
         </div>
       </section>
@@ -366,22 +399,30 @@ export default function HomePage() {
       </section>
 
       {/* CTA 섹션 */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-primary-800 text-white">
-        <div className="container text-center">
+      <section className="py-20 bg-gradient-to-r from-primary-600 to-primary-800 text-white relative overflow-hidden">
+        {/* 배경 장식 */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#FEE500]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FEE500]/10 rounded-full blur-3xl"></div>
+        
+        <div className="container text-center relative z-10">
           <h2 className="text-4xl font-bold mb-4">장비 구매 문의</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             전문 상담원이 귀하의 연구 환경에 최적화된 장비 솔루션을 제안해드립니다
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center gap-2"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* 카카오톡 버튼 - 강조 */}
+            <button
+              onClick={openKakaoChannel}
+              className="px-10 py-5 bg-[#FEE500] text-gray-900 font-bold rounded-xl hover:bg-[#FDD835] transition-all shadow-2xl hover:shadow-[#FEE500]/50 hover:scale-105 inline-flex items-center justify-center gap-3 text-lg relative group"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" />
+              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" fill="#3C1E1E" />
               </svg>
-              카카오톡 상담
-            </Link>
+              <span>카카오톡 상담</span>
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
+                NEW
+              </span>
+            </button>
             <a
               href="tel:02-1234-5678"
               className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2"

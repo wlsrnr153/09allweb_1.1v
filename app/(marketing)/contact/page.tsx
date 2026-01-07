@@ -113,6 +113,41 @@ export default function ContactPage() {
         </div>
       </div>
 
+      {/* 카카오톡 강조 배너 */}
+      <div className="bg-gradient-to-r from-[#FEE500] to-[#FDD835] border-b-4 border-[#FDD835]">
+        <div className="container py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z"
+                    fill="#3C1E1E"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  카카오톡으로 빠르게 상담받으세요!
+                </h3>
+                <p className="text-sm text-gray-700">
+                  실시간 견적 문의 · 평일 09:00-18:00 · 평균 응답 시간 5분 이내
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={handleKakaoContact}
+              className="px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl whitespace-nowrap flex items-center gap-2"
+            >
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" fill="white" />
+              </svg>
+              카카오톡 상담 시작
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* 메인 콘텐츠 */}
       <div className="container py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -168,13 +203,19 @@ export default function ContactPage() {
               <div className="mt-6 pt-6 border-t">
                 <button
                   onClick={handleKakaoContact}
-                  className="btn w-full bg-[#FEE500] text-gray-900 hover:bg-[#FDD835]"
+                  className="w-full py-4 bg-gradient-to-r from-[#FEE500] to-[#FDD835] text-gray-900 font-bold rounded-xl hover:from-[#FDD835] hover:to-[#FEE500] transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center gap-3 text-lg relative group"
                 >
-                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" />
+                  <svg className="w-7 h-7 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" fill="#3C1E1E" />
                   </svg>
-                  카카오톡 상담
+                  <span>카카오톡 상담</span>
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
+                    빠름
+                  </span>
                 </button>
+                <p className="text-xs text-center text-gray-500 mt-2">
+                  평균 응답 시간 5분 이내
+                </p>
               </div>
             </div>
           </div>
@@ -322,23 +363,35 @@ export default function ContactPage() {
                 </div>
 
                 {/* 제출 버튼 */}
-                <div className="flex gap-3">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex-1 btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? '제출 중...' : '문의하기'}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleKakaoContact}
-                    className="btn bg-[#FEE500] text-gray-900 hover:bg-[#FDD835]"
-                  >
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" />
-                    </svg>
-                  </button>
+                <div className="space-y-3">
+                  <div className="flex gap-3">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-1 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? '제출 중...' : '문의하기'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleKakaoContact}
+                      className="px-6 py-4 bg-gradient-to-r from-[#FEE500] to-[#FDD835] text-gray-900 font-bold rounded-lg hover:from-[#FDD835] hover:to-[#FEE500] transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                    >
+                      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" fill="#3C1E1E" />
+                      </svg>
+                      <span className="hidden sm:inline">카카오톡</span>
+                    </button>
+                  </div>
+                  <div className="text-center">
+                    <button
+                      type="button"
+                      onClick={handleKakaoContact}
+                      className="text-sm text-primary-600 hover:text-primary-700 font-semibold underline"
+                    >
+                      또는 카카오톡으로 바로 상담받기 →
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>

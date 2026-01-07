@@ -28,14 +28,14 @@ export default function FloatingButtons() {
 
   return (
     <>
-      {/* Kakao FAB */}
+      {/* Kakao FAB - 강화된 버전 */}
       <button
         onClick={openKakaoChannel}
-        className="fixed bottom-24 right-6 z-40 w-14 h-14 bg-[#FEE500] rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 md:hidden"
+        className="fixed bottom-24 right-6 z-40 w-16 h-16 md:w-20 md:h-20 bg-[#FEE500] rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 hover:shadow-[#FEE500]/50 hover:shadow-2xl group animate-pulse"
         aria-label="카카오톡 상담"
       >
         <svg
-          className="w-8 h-8"
+          className="w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,17 @@ export default function FloatingButtons() {
             fill="#3C1E1E"
           />
         </svg>
+        {/* 펄스 링 효과 */}
+        <span className="absolute inset-0 rounded-full bg-[#FEE500] animate-ping opacity-20"></span>
       </button>
+
+      {/* 카카오톡 텍스트 라벨 (데스크톱) */}
+      <div className="hidden md:block fixed bottom-24 right-32 z-40">
+        <div className="bg-[#FEE500] text-gray-900 px-4 py-2 rounded-lg shadow-lg font-semibold text-sm whitespace-nowrap">
+          카카오톡 상담
+        </div>
+        <div className="absolute right-0 top-full w-0 h-0 border-l-8 border-l-[#FEE500] border-t-4 border-t-transparent"></div>
+      </div>
 
       {/* Scroll to Top Button */}
       {isVisible && (
