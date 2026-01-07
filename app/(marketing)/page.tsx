@@ -53,7 +53,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* 히어로 슬라이더 */}
-      <section className="relative h-[600px] overflow-hidden">
+      <section className="relative h-[500px] md:h-[650px] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -64,16 +64,16 @@ export default function HomePage() {
             <div className={`h-full bg-gradient-to-r ${slide.bg} flex items-center`}>
               <div className="container">
                 <div className="max-w-3xl text-white">
-                  <h1 className="text-5xl md:text-6xl font-bold mb-6 whitespace-pre-line leading-tight">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 whitespace-pre-line leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-xl md:text-2xl mb-8 text-white/90">
+                  <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-white/90">
                     {slide.description}
                   </p>
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                     <Link
                       href={slide.link}
-                      className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
+                      className="px-6 md:px-8 py-3 md:py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center gap-2"
                     >
                       {slide.cta}
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@ export default function HomePage() {
                     </Link>
                     <Link
                       href="/contact"
-                      className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
+                      className="px-6 md:px-8 py-3 md:py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-center"
                     >
                       무료 상담
                     </Link>
@@ -94,43 +94,43 @@ export default function HomePage() {
         ))}
 
         {/* 슬라이드 인디케이터 */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === activeSlide ? 'bg-white w-8' : 'bg-white/50'
+              className={`h-2 md:h-3 rounded-full transition-all ${
+                index === activeSlide ? 'bg-white w-6 md:w-8' : 'bg-white/50 w-2 md:w-3'
               }`}
               aria-label={`슬라이드 ${index + 1}`}
             />
           ))}
         </div>
+      </section>
 
-        {/* 검색바 오버레이 */}
-        <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 z-20">
-          <div className="container">
-            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-4xl mx-auto">
-              <div className="flex flex-col md:flex-row gap-4">
-                <input
-                  type="text"
-                  placeholder="장비명, 모델명, 제조사를 검색하세요..."
-                  className="flex-1 px-6 py-4 border-2 border-gray-200 rounded-lg focus:border-primary-500 focus:outline-none text-lg"
-                />
-                <Link
-                  href="/equipment"
-                  className="px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors whitespace-nowrap"
-                >
-                  장비 검색
-                </Link>
-              </div>
+      {/* 검색바 섹션 */}
+      <section className="bg-gray-50 py-8 md:py-12">
+        <div className="container">
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-4xl mx-auto border border-gray-100">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4">
+              <input
+                type="text"
+                placeholder="장비명, 모델명, 제조사를 검색하세요..."
+                className="flex-1 px-4 md:px-6 py-3 md:py-4 border-2 border-gray-200 rounded-lg focus:border-primary-500 focus:outline-none text-base md:text-lg transition-colors"
+              />
+              <Link
+                href="/equipment"
+                className="px-6 md:px-8 py-3 md:py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all hover:shadow-lg whitespace-nowrap text-center"
+              >
+                장비 검색
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* 빠른 링크 */}
-      <section className="py-20 bg-gray-50 mt-16">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
