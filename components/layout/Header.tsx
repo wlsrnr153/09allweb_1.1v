@@ -24,6 +24,10 @@ const menuItems = [
     href: '/portfolio',
   },
   {
+    label: 'FAQ',
+    href: '/faq',
+  },
+  {
     label: '문의하기',
     href: '/contact',
   },

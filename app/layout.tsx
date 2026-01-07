@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Pretendard } from './fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -25,15 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ko">
-      <head>
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
-        />
-      </head>
+    <html lang="ko" className={Pretendard.variable}>
       <body className="font-sans antialiased">
         {children}
       </body>
