@@ -56,14 +56,14 @@ export default function ContactPage() {
   }
 
   const handleKakaoContact = () => {
-    let message = `[09all 문의]\n이름: ${formData.name || '미입력'}\n회사: ${formData.company || '미입력'}\n\n`
+    let message = `[09all 매입 문의]\n이름: ${formData.name || '미입력'}\n회사: ${formData.company || '미입력'}\n\n`
     
     if (selectedEquipment) {
-      message += `문의 장비: ${selectedEquipment.title}\n\n`
+      message += `매입 장비: ${selectedEquipment.title}\n\n`
     }
     
     if (formData.message) {
-      message += `문의 내용:\n${formData.message}`
+      message += `매입 장비 정보:\n${formData.message}`
     }
 
     // 클립보드에 복사
@@ -129,10 +129,10 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  카카오톡으로 빠르게 상담받으세요!
+                  카카오톡으로 빠르게 매입 견적 받으세요!
                 </h3>
                 <p className="text-sm text-gray-700">
-                  실시간 견적 문의 · 평일 09:00-18:00 · 평균 응답 시간 5분 이내
+                  실시간 매입 견적 문의 · 평일 09:00-18:00 · 당일 현장 방문 가능
                 </p>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" fill="white" />
               </svg>
-              카카오톡 상담 시작
+              카카오톡 매입 상담 시작
             </button>
           </div>
         </div>
