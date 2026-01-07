@@ -17,7 +17,7 @@ export default function PortfolioPage() {
         <div className="container py-8">
           <h1 className="text-3xl font-bold mb-2">매입 실적</h1>
           <p className="text-gray-600">
-            다양한 기관과 함께한 장비 납품 실적을 소개합니다
+            다양한 기관으로부터 매입한 장비 실적을 소개합니다
           </p>
         </div>
       </div>

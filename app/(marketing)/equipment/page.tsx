@@ -122,9 +122,9 @@ export default function EquipmentPage() {
       {/* 헤더 */}
       <div className="bg-white border-b">
         <div className="container py-8">
-          <h1 className="text-3xl font-bold mb-2">장비 안내</h1>
+          <h1 className="text-3xl font-bold mb-2">매입 가능 장비</h1>
           <p className="text-gray-600">
-            최신 연구장비를 합리적인 가격에 만나보세요
+            매입 가능한 연구장비를 확인하고 견적을 요청하세요
           </p>
         </div>
       </div>

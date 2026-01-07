@@ -80,9 +80,10 @@ export default function ContactPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
           <div className="text-6xl mb-4">✅</div>
-          <h2 className="text-2xl font-bold mb-4">문의가 접수되었습니다</h2>
+          <h2 className="text-2xl font-bold mb-4">매입 견적 요청이 접수되었습니다</h2>
           <p className="text-gray-600 mb-6">
-            빠른 시일 내에 담당자가 연락드리겠습니다.<br />
+            빠른 시일 내에 전문가가 현장 방문하여<br />
+            정확한 평가를 진행하겠습니다.<br />
             감사합니다.
           </p>
           <div className="space-y-3">
@@ -90,7 +91,7 @@ export default function ContactPage() {
               onClick={handleKakaoContact}
               className="btn btn-primary w-full"
             >
-              카카오톡으로 계속 상담하기
+              카카오톡으로 계속 매입 상담하기
             </button>
             <a href="/" className="btn btn-secondary w-full">
               홈으로 돌아가기
@@ -106,9 +107,9 @@ export default function ContactPage() {
       {/* 헤더 */}
       <div className="bg-white border-b">
         <div className="container py-8">
-          <h1 className="text-3xl font-bold mb-2">문의하기</h1>
+          <h1 className="text-3xl font-bold mb-2">매입 문의</h1>
           <p className="text-gray-600">
-            연구장비 구매, 견적, 기타 문의사항을 남겨주세요
+            사용하지 않는 연구장비 매입 견적을 요청해주세요
           </p>
         </div>
       </div>
@@ -154,7 +155,7 @@ export default function ContactPage() {
           {/* 연락처 정보 */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-sm p-6 sticky top-24">
-              <h2 className="font-bold text-xl mb-4">연락처 정보</h2>
+              <h2 className="font-bold text-xl mb-4">매입 상담 연락처</h2>
 
               <div className="space-y-4">
                 <div className="flex items-start">
@@ -208,7 +209,7 @@ export default function ContactPage() {
                   <svg className="w-7 h-7 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 3C6.48 3 2 6.58 2 11C2 13.5 3.5 15.72 5.83 17.17L4.5 21L8.67 18.83C9.72 19.08 10.84 19.25 12 19.25C17.52 19.25 22 15.67 22 11.25C22 6.83 17.52 3 12 3Z" fill="#3C1E1E" />
                   </svg>
-                  <span>카카오톡 상담</span>
+                  <span>카카오톡 매입 상담</span>
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
                     빠름
                   </span>
@@ -327,7 +328,7 @@ export default function ContactPage() {
                 {/* 문의 내용 */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    문의 내용 <span className="text-red-500">*</span>
+                    매입 장비 정보 <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -337,7 +338,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                    placeholder="문의하실 내용을 자세히 입력해주세요"
+                    placeholder="매입하실 장비명, 모델명, 제조사, 구매년도, 사용 상태 등을 자세히 입력해주세요"
                   />
                 </div>
 
@@ -365,13 +366,13 @@ export default function ContactPage() {
                 {/* 제출 버튼 */}
                 <div className="space-y-3">
                   <div className="flex gap-3">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="flex-1 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? '제출 중...' : '문의하기'}
-                    </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex-1 px-6 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? '제출 중...' : '매입 견적 요청'}
+                  </button>
                     <button
                       type="button"
                       onClick={handleKakaoContact}
@@ -389,7 +390,7 @@ export default function ContactPage() {
                       onClick={handleKakaoContact}
                       className="text-sm text-primary-600 hover:text-primary-700 font-semibold underline"
                     >
-                      또는 카카오톡으로 바로 상담받기 →
+                      또는 카카오톡으로 바로 매입 상담받기 →
                     </button>
                   </div>
                 </div>

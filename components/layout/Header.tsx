@@ -15,7 +15,7 @@ const menuItems = [
     ],
   },
   {
-    label: '장비안내',
+    label: '매입 가능 장비',
     href: '/equipment',
   },
   {
@@ -27,7 +27,7 @@ const menuItems = [
     href: '/faq',
   },
   {
-    label: '문의하기',
+    label: '매입 문의',
     href: '/contact',
   },
 ]
@@ -141,16 +141,16 @@ export default function Header() {
             {/* CTA 버튼 */}
             <div className="hidden lg:flex items-center gap-3">
               <Link
-                href="/equipment"
+                href="/contact"
                 className="px-6 py-3 text-primary-600 font-semibold hover:text-primary-700 transition-colors"
               >
-                장비 검색
+                매입 견적 요청
               </Link>
               <Link
                 href="/contact"
                 className="px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors shadow-md hover:shadow-lg"
               >
-                무료 견적 상담
+                무료 매입 상담
               </Link>
             </div>
 
@@ -227,7 +227,7 @@ export default function Header() {
                 className="block w-full py-3 bg-primary-600 text-white text-center font-semibold rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                무료 견적 상담
+                무료 매입 상담
               </Link>
             </div>
           </nav>
