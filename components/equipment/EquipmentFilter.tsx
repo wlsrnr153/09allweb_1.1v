@@ -6,7 +6,10 @@ export interface FilterState {
   category: string[]
   brand: string[]
   priceRange: { min: number; max: number } | null
+<<<<<<< HEAD
   includeNonNumericPrice: boolean // "문의", "협의" 등 문자열 가격 포함 여부
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
   condition: string[]
   year: { min: number; max: number } | null
   keyword: string
@@ -27,7 +30,10 @@ export default function EquipmentFilter({
     category: [],
     brand: [],
     priceRange: null,
+<<<<<<< HEAD
     includeNonNumericPrice: false,
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
     condition: [],
     year: null,
     keyword: '',
@@ -71,7 +77,10 @@ export default function EquipmentFilter({
       category: [],
       brand: [],
       priceRange: null,
+<<<<<<< HEAD
       includeNonNumericPrice: false,
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
       condition: [],
       year: null,
       keyword: '',
@@ -85,7 +94,10 @@ export default function EquipmentFilter({
     filters.brand.length +
     filters.condition.length +
     (filters.priceRange ? 1 : 0) +
+<<<<<<< HEAD
     (filters.includeNonNumericPrice ? 1 : 0) +
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
     (filters.year ? 1 : 0)
 
   return (
@@ -186,6 +198,7 @@ export default function EquipmentFilter({
                 <span className="ml-2 text-sm text-gray-700">{range.label}</span>
               </label>
             ))}
+<<<<<<< HEAD
             {/* 문자열 가격 포함 옵션 */}
             <label className="flex items-center cursor-pointer pt-2 border-t border-gray-200">
               <input
@@ -196,6 +209,8 @@ export default function EquipmentFilter({
               />
               <span className="ml-2 text-sm text-gray-700">문의/협의 가격 포함</span>
             </label>
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
           </div>
         </div>
 

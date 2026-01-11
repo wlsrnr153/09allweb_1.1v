@@ -14,7 +14,11 @@ export default function HomePage() {
   const slides = [
     {
       title: '사용하지 않는 연구장비를\n합리적인 가격에 매입합니다',
+<<<<<<< HEAD
       description: '연구장비 전문 매입 기업',
+=======
+      description: '20년 전통의 연구장비 전문 매입 기업',
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
       cta: '매입 견적 요청',
       link: '/contact',
       bg: 'from-primary-600 via-primary-700 to-primary-800',
