@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="연구장비매입센터는 연구실험장비 구매, 임대, 유지보수 서비스를 제공하며 연구자와 기관에게 최적의 장비 솔루션을 제공합니다.">
+    <meta name="keywords" content="연구장비, 실험장비, 장비매입, 연구장비구매, 실험실장비">
+    <meta name="format-detection" content="telephone=no">
+    <title>기자재의 모든것 - Research Equipment Shop</title>
+    <link a href='../research-equipment-shop-1.0/index.html' type="image/ico">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <a href="#container" class="skip">본문바로가기</a>
+    
+    <div id="wrap">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="logo_area">
+                    <h1 class="site_id">
+                        <a href="../research-equipment-shop-1.0/index.html" title="메인 바로가기">
+                            <img src="images/logo_simple.svg" alt="기자재의모든것">
+                        </a>
+                    </h1>
+                    
+                    <div class="srch_lnb">
+                        <div class="srch_inner">
+                            <form action="/search" id="srchForm" name="srchForm">
+                                <fieldset class="srch_field">
+                                    <legend>전체 검색 입력폼</legend>
+                                    <label class="srch_label">
+                                        <span class="blind">전체 검색</span>
+                                        <input type="text" id="keyword" autocomplete="off" 
+                                               title="검색어를 입력하세요." 
+                                               placeholder="원하는 연구장비를 검색해보세요" value="">
+                                    </label>
+                                    <button type="submit" class="btn_srch" title="검색">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn_lnb" id="mainMenuOpenBtn">
+                    <span>메뉴열기</span>
+                </button>
+            </div>
+            
+            <!-- Navigation -->
+            <nav id="mainHeaderMenuArea">
+                <ul class="depth01">
+                    <!-- 활성화시 'act' 클래스 추가 -->
+                    <li>
+                        <a href="../research-equipment-shop-1.0/about.html">회사소개</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_1"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html"title="분석장비">회사개요</a></li>
+                            <li id="depth02_menu_2"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/history.html" title="연혁">연혁</a></li>
+                            <li id="depth02_menu_3"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/location.html" title="오시는길">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../research-equipment-shop-1.0/contact.html">문의하기</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_5"><a href="../research-equipment-shop-1.0/contact.html" title="단기임대">일반문의</a></li>
+                            <li id="depth02_menu_6"><a href="../research-equipment-shop-1.0/contact.html" title="장기임대">견적문의</a></li>
+                            <li id="depth02_menu_7"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/kakao.html" title="카톡문의">카톡문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../research-equipment-shop-1.0/equipment.html">장비매입</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_8"><a href="../research-equipment-shop-1.0/equipment.html" title="수리서비스">분석장비</a></li>
+                            <li id="depth02_menu_9"><a href="../research-equipment-shop-1.0/equipment.html" title="교정서비스">계측장비</a></li>
+                            <li id="depth02_menu_10"><a href="../research-equipment-shop-1.0/equipment.html" title="유지보수계약">기타실험장비</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/consulting">컨설팅</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_11"><a href="/consulting/selection" title="장비선정">장비선정</a></li>
+                            <li id="depth02_menu_12"><a href="/consulting/installation" title="설치지원">설치지원</a></li>
+                            <li id="depth02_menu_13"><a href="/consulting/training" title="교육훈련">교육훈련</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="notice.html">공지사항</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_14"><a href="notice.html" title="공지사항">공지사항</a></li>
+                            <li id="depth02_menu_15"><a href="/support/quote" title="작업사진">작업사진</a></li>
+                            <li id="depth02_menu_16"><a href="/support/faq" title="자주묻는질문">자주묻는질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="quick_set">
+                    <h3 class="tit">퀵메뉴 설정</h3>
+                    <button type="button" onclick="fn_quickSet('close');" class="btn_lnb_close">퀵메뉴 설정 닫기</button>
+                    
+                    <form action="/user/quick/menu/add" class="quicListAddFrm" id="menuAddFrm" method="post" name="menuAddFrm">
+                        <fieldset>
+                            <legend>퀵메뉴 설정 폼</legend>
+                            
+                            <!-- 현재 퀵메뉴 -->
+                            <dl class="cur_quick">
+                                <dt><span class="blind">현재 </span><var>&nbsp;</var>님의 퀵메뉴</dt>
+                                <!-- 값이 들어오면, 순차적으로 'fill' 클래스 추가 -->
+                                <!-- 'ico01' ~ 'ico14' 로 아이콘 변경 -->
+                                <dd class="fill ico3 numSet" id="default1823">
+                                    <strong>장비구매</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1823','장비구매');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[0].menuCd" value="1823">
+                                    <input type="hidden" class="menuSort" name="menus[0].sortNo" value="1">
+                                </dd>
+                                <dd class="fill ico12 numSet" id="default1920">
+                                    <strong>장비임대</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1920','장비임대');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[1].menuCd" value="1920">
+                                    <input type="hidden" class="menuSort" name="menus[1].sortNo" value="2">
+                                </dd>
+                                <dd class="fill ico11 numSet" id="default1803">
+                                    <strong>유지보수</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1803','유지보수');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[2].menuCd" value="1803">
+                                    <input type="hidden" class="menuSort" name="menus[2].sortNo" value="3">
+                                </dd>
+                                <dd class="fill ico4 numSet" id="default1540">
+                                    <strong>컨설팅</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1540','컨설팅');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[3].menuCd" value="1540">
+                                    <input type="hidden" class="menuSort" name="menus[3].sortNo" value="4">
+                                </dd>
+                                <dd class="fill ico3 numSet" id="default1285">
+                                    <strong>고객지원</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1285','고객지원');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[4].menuCd" value="1285">
+                                    <input type="hidden" class="menuSort" name="menus[4].sortNo" value="5">
+                                </dd>
+                                <dd class="fill ico10 numSet" id="default1763">
+                                    <strong>통계정보</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1763','통계정보');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[5].menuCd" value="1763">
+                                    <input type="hidden" class="menuSort" name="menus[5].sortNo" value="6">
+                                </dd>
+                            </dl>
+                            
+                            <!-- 전체 퀵메뉴 -->
+                            <div class="whole_quick">
+                                <h4 class="wq_tit">전체서비스</h4>
+                                <dl class="ico1">
+                                    <dt>장비구매</dt>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="1461" onclick="fn_chkEvent('1461','장비구매','1')">
+                                            <span>장비구매</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="1843" onclick="fn_chkEvent('1843','분석장비','1')">
+                                            <span>분석장비</span>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="ico2">
+                                    <dt>장비임대</dt>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="452" onclick="fn_chkEvent('452','장비임대','2')">
+                                            <span>장비임대</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="453" onclick="fn_chkEvent('453','단기임대','2')">
+                                            <span>단기임대</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="1345" onclick="fn_chkEvent('1345','장기임대','2')">
+                                            <span>장기임대</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="460" onclick="fn_chkEvent('460','리스','2')">
+                                            <span>리스</span>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="ico3">
+                                    <dt>유지보수</dt>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="213" onclick="fn_chkEvent('213','유지보수','3')">
+                                            <span>유지보수</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" checked="" name="qui" id="1285" onclick="fn_chkEvent('1285','수리서비스','3')">
+                                            <span>수리서비스</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" checked="" name="qui" id="1823" onclick="fn_chkEvent('1823','교정서비스','3')">
+                                            <span>교정서비스</span>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="ico4">
+                                    <dt>컨설팅</dt>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="85" onclick="fn_chkEvent('85','컨설팅','4')">
+                                            <span>컨설팅</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="328" onclick="fn_chkEvent('328','장비선정','4')">
+                                            <span>장비선정</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="86" onclick="fn_chkEvent('86','설치지원','4')">
+                                            <span>설치지원</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" checked="" name="qui" id="1540" onclick="fn_chkEvent('1540','교육훈련','4')">
+                                            <span>교육훈련</span>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="ico5">
+                                    <dt>고객지원</dt>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="1903" onclick="fn_chkEvent('1903','고객지원','5')">
+                                            <span>고객지원</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="1906" onclick="fn_chkEvent('1906','문의하기','5')">
+                                            <span>문의하기</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="1907" onclick="fn_chkEvent('1907','견적요청','5')">
+                                            <span>견적요청</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" checked="" name="qui" id="1920" onclick="fn_chkEvent('1920','자주묻는질문','5')">
+                                            <span>자주묻는질문</span>
+                                        </label>
+                                    </dd>
+                                </dl>
+                                <dl class="ico6">
+                                    <dt>통계정보</dt>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="239" onclick="fn_chkEvent('239','통계정보','6')">
+                                            <span>통계정보</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="371" onclick="fn_chkEvent('371','통계 상세 분석','6')">
+                                            <span>통계 상세 분석</span>
+                                        </label>
+                                    </dd>
+                                    <dd>
+                                        <label>
+                                            <input type="checkbox" name="qui" id="372" onclick="fn_chkEvent('372','테마별 통계','6')">
+                                            <span>테마별 통계</span>
+                                        </label>
+                                    </dd>
+                                </dl>
+                            </div>
+                            
+                            <div class="q_btn_box">
+                                <button type="reset" onclick="fn_quick_reset()" title="설정 초기화">초기화</button>
+                                <button type="button" class="submit" onclick="fn_quick_submit()" title="설정 저장">저장</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                
+           
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <article id="container">
+            <h2 class="blind">본문</h2>
+            
+            <!-- Main Banner -->
+            <section class="main_banner">
+                <div class="banner_inner">
+                    <div class="banner_slide">
+                        <ul class="slide_list">
+                            <li class="active">
+                                <div class="slide_content">
+                                    <h3>최첨단 연구장비로<br>연구의 새로운 가능성을 열어보세요</h3>
+                                    <p>전문가가 추천하는 검증된 연구장비를<br>합리적인 가격으로 만나보세요</p>
+                                    <a href="../research-equipment-shop-1.0/equipment.html" class="btn_more">장비 둘러보기</a>
+                                </div>
+                                <div class="slide_img">
+                                    <img src="images/banner01.jpg" alt="연구장비 이미지">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slide_content">
+                                    <h3>신뢰할 수 있는<br>장비 임대 서비스</h3>
+                                    <p>필요한 기간만큼 경제적으로<br>최신 장비를 이용하세요</p>
+                                    <a href="/rental" class="btn_more">임대 서비스</a>
+                                </div>
+                                <div class="slide_img">
+                                    <img src="images/banner02.jpg" alt="장비임대 이미지">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slide_content">
+                                    <h3>전문적인 유지보수로<br>장비 성능을 최적화하세요</h3>
+                                    <p>정기점검부터 긴급수리까지<br>전문 기술진이 지원합니다</p>
+                                    <a href="/maintenance" class="btn_more">유지보수 서비스</a>
+                                </div>
+                                <div class="slide_img">
+                                    <img src="images/banner03.jpg" alt="유지보수 이미지">
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="banner_controls">
+                            <button type="button" class="btn_prev">이전</button>
+                            <div class="slide_dots">
+                                 <button type="button" class="dot active" data-slide="0"></button>
+                                 <button type="button" class="dot" data-slide="1"></button>
+                                 <button type="button" class="dot" data-slide="2"></button>
+                            </div>
+                            <button type="button" class="btn_next">다음</button>    
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Menu -->
+                    <div class="quick_menu">
+                        <h3>빠른 서비스</h3>
+                        <ul>
+                            <li><a href="../research-equipment-shop-1.0/contact.html"><span class="icon">💰</span>견적요청</a></li>
+                            <li><a href="../research-equipment-shop-1.0/about.html"><span class="icon">📋</span>회사소개</a></li>
+                            <li><a href="../research-equipment-shop-1.0/equipment.html"><span class="icon">🔧</span>장비매입</a></li>
+                            <li><a href="/consulting/request"><span class="icon">💡</span>컨설팅</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Featured Equipment -->
+            <section class="featured_equipment">
+                <div class="sect_inner">
+                    <header class="sect_head">
+                        <h3>추천 연구장비</h3>
+                        <p>전문가가 엄선한 인기 연구장비를 만나보세요</p>
+                    </header>
+                    
+                    <div class="equipment_tabs">
+                        <ul class="tab_list">
+                            <li class="active"><a href="#analytical">분석장비</a></li>
+                            <li><a href="#measurement">측정장비</a></li>
+                            <li><a href="#processing">가공장비</a></li>
+                            <li><a href="#safety">안전장비</a></li>
+                        </ul>
+                        
+                        <div class="tab_content active" id="analytical">
+                            <div class="equipment_grid">
+                                <div class="equipment_card">
+                                    <div class="card_img">
+                                        <img src="images/equipment01.jpg" alt="X-ray 회절분석기">
+                                    </div>
+                                    <div class="card_info">
+                                        <h4>X-ray 회절분석기</h4>
+                                        <p>결정구조 분석을 위한 고정밀 장비</p>
+                                        <div class="price">₩ 150,000,000</div>
+                                        <div class="card_actions">
+                                            <a href="#" class="btn_detail">상세보기</a>
+                                            <a href="#" class="btn_quote">견적요청</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="equipment_card">
+                                    <div class="card_img">
+                                        <img src="images/equipment02.jpg" alt="전자현미경">
+                                    </div>
+                                    <div class="card_info">
+                                        <h4>투과전자현미경 (TEM)</h4>
+                                        <p>나노구조 관찰을 위한 최첨단 장비</p>
+                                        <div class="price">₩ 800,000,000</div>
+                                        <div class="card_actions">
+                                            <a href="#" class="btn_detail">상세보기</a>
+                                            <a href="#" class="btn_quote">견적요청</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="equipment_card">
+                                    <div class="card_img">
+                                        <img src="images/equipment03.jpg" alt="질량분석기">
+                                    </div>
+                                    <div class="card_info">
+                                        <h4>LC-MS/MS 시스템</h4>
+                                        <p>정밀 분자분석을 위한 복합장비</p>
+                                        <div class="price">₩ 250,000,000</div>
+                                        <div class="card_actions">
+                                            <a href="#" class="btn_detail">상세보기</a>
+                                            <a href="#" class="btn_quote">견적요청</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="equipment_card">
+                                    <div class="card_img">
+                                        <img src="images/equipment04.jpg" alt="NMR">
+                                    </div>
+                                    <div class="card_info">
+                                        <h4>핵자기공명분석기 (NMR)</h4>
+                                        <p>분자구조 규명을 위한 필수장비</p>
+                                        <div class="price">₩ 600,000,000</div>
+                                        <div class="card_actions">
+                                            <a href="#" class="btn_detail">상세보기</a>
+                                            <a href="#" class="btn_quote">견적요청</a>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="equipment_card">
+                                    <div class="card_img">
+                                        <img src="images/equipment04.jpg" alt="NMR">
+                                    </div>
+                                    <div class="card_info">
+                                        <h4>네트워크분석기</h4>
+                                        <p>네트워크 분석기</p>
+                                        <div class="price">₩ 600,000,000</div>
+                                        <div class="card_actions">
+                                            <a href="#" class="btn_detail">상세보기</a>
+                                            <a href="#" class="btn_quote">견적요청</a>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="equipment_card">
+                                    <div class="card_img">
+                                        <img src="images/equipment04.jpg" alt="NMR">
+                                    </div>
+                                    <div class="card_info">
+                                        <h4>신호분석기</h4>
+                                        <p>신호분석기</p>
+                                        <div class="price">₩ 600,000,000</div>
+                                        <div class="card_actions">
+                                            <a href="#" class="btn_detail">상세보기</a>
+                                            <a href="#" class="btn_quote">견적요청</a>
+                                         </div>
+                                    </div>
+                                </div>
+
+                             </div>
+                         </div>
+                      
+
+                        <div class="tab_content" id="measurement">
+                            <div class="equipment_grid">
+                                <div class="equipment_card">
+                                    <div class="card_img">
+                                        <img src="images/measurement01.jpg" alt="표면조도측정기">
+                                    </div>
+                                    <div class="card_info">
+                                        <h4>3D 표면조도측정기</h4>
+                                        <p>나노급 표면 형상 측정장비</p>
+                                        <div class="price">₩ 80,000,000</div>
+                                        <div class="card_actions">
+                                            <a href="#" class="btn_detail">상세보기</a>
+                                            <a href="#" class="btn_quote">견적요청</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Services -->
+            <section class="services">
+                <div class="sect_inner">
+                    <header class="sect_head">
+                        <h3>서비스 안내</h3>
+                        <p>연구장비 전문기업이 제공하는 종합 서비스</p>
+                    </header>
+                    
+                    <div class="service_grid">
+                        <div class="service_card">
+                            <div class="service_icon">🛒</div>
+                            <h4>장비매입</h4>
+                            <p>국내외 우수 연구장비를<br>경쟁력 있는 가격으로 매입</p>
+                            <ul>
+                                <li>✓ 전문가 상담</li>
+                                <li>✓ 맞춤형 견적</li>
+                                <li>✓ 방문 상담</li>
+                            </ul>
+                            <a href="../research-equipment-shop-1.0/equipment.html" class="service_link">자세히 보기</a>
+                        </div>
+                        
+                        <div class="service_card">
+                            <div class="service_icon">💡</div>
+                            <h4>컨설팅</h4>
+                            <p>연구목적에 최적화된<br>장비 솔루션 제공</p>
+                            <ul>
+                                <li>✓ 장비선정 컨설팅</li>
+                                <li>✓ 실험실 설계</li>
+                                <li>✓ 운영 최적화</li>
+                            </ul>
+                            <a href="/consulting" class="service_link">자세히 보기</a>
+                        </div>
+                        
+                        <div class="service_card">
+                            <div class="service_icon">🔧</div>
+                            <h4>유지보수</h4>
+                            <p>전문 기술진의<br>체계적인 관리서비스</p>
+                            <ul>
+                                <li>✓ 정기점검</li>
+                                <li>✓ 긴급수리</li>
+                                <li>✓ 예방정비</li>
+                            </ul>
+                            <a href="/maintenance" class="service_link">자세히 보기</a>
+                        </div>
+                        
+                  
+
+
+                    </div>
+                </div>
+            </section>
+            
+            <!-- News & Notice -->
+            <section class="news_notice">
+                <div class="sect_inner">
+                    <div class="news_section">
+                        <div class="board_wrap">
+                            <div class="board_head">
+                                <h3>공지사항</h3>
+                                <a href="notice.html" class="more_link">더보기</a>
+                            </div>
+                            <ul class="board_list">
+                                <li>
+                                    <a href="/notice/1">
+                                        <span class="title">2024년 신제품 출시 안내</span>
+                                        <span class="date">2024-03-15</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/notice/2">
+                                        <span class="title">봄철 정기점검 일정 안내</span>
+                                        <span class="date">2024-03-10</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/notice/3">
+                                        <span class="title">고객서비스 시간 변경 안내</span>
+                                        <span class="date">2024-03-05</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="board_wrap">
+                            <div class="board_head">
+                                <h3>기술뉴스</h3>
+                                <a href="/news" class="more_link">더보기</a>
+                            </div>
+                            <ul class="board_list">
+                                <li>
+                                    <a href="/news/1">
+                                        <span class="title">AI 기반 장비 진단 기술 도입</span>
+                                        <span class="date">2024-03-12</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/news/2">
+                                        <span class="title">친환경 연구장비 트렌드</span>
+                                        <span class="date">2024-03-08</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/news/3">
+                                        <span class="title">차세대 분석기술 소개</span>
+                                        <span class="date">2024-03-03</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+        
+        <!-- Footer -->
+         <footer id="footer">
+             <div class="inner">
+                
+                 
+                 <div class="footer_bottom">
+                     <div class="bot">
+                         <div class="certify">
+                             <ul>
+                                 <li><a href="/company">회사소개</a></li>
+                                 <li class="m_none"><a href="/brand">브랜드 정책</a></li>
+                                 <li><a href="/privacy"><span>개인정보처리방침</span></a></li>
+                                 <li class="m_none"><a href="/terms">이용약관</a></li>
+                                 <li><a href="/api">API 서비스</a></li>
+                                 <li class="m_none"><a href="/sitemap">서비스 전체보기</a></li>
+                             </ul>
+                             <address>연구장비매입센터 (06234) 서울특별시 강남구 테헤란로 123, 456호</address>
+                             <p class="copy">Copyright © 2024 Research Equipment Shop. All rights reserved.</p>
+                         </div>
+                         <div class="agency">
+                             <a href="https://www.msit.go.kr" target="_blank" title="새창"><img src="images/logo_msit.png" alt="과학기술정보통신부"></a>
+                             <a href="https://www.nfec.go.kr" target="_blank" title="새창"><img src="images/logo_nfec.png" alt="국가연구시설장비진흥센터"></a>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="연구장비매입센터 카카오톡 문의 - 카카오톡 채널을 통해 빠르고 편리하게 연구장비 관련 상담을 받으실 수 있습니다.">
+    <meta name="keywords" content="카카오톡문의, 카톡상담, 연구장비문의, 실시간상담, 카톡채널">
+    <meta name="format-detection" content="telephone=no">
+    <title>카톡문의 - 기자재의 모든곳</title>
+    <link rel="shortcut icon" href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/kakao.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- 카카오 JavaScript SDK -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+</head>
+<body>
+    <a href="#container" class="skip">본문바로가기</a>
+    
+    <div id="wrap">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="logo_area">
+                    <h1 class="site_id">
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" title="메인 바로가기">
+                            <img src="images/logo_simple.svg" alt="기자재의모든것">
+                        </a>
+                    </h1>
+                    
+                    <div class="srch_lnb">
+                        <div class="srch_inner">
+                            <form action="/search" id="srchForm" name="srchForm">
+                                <fieldset class="srch_field">
+                                    <legend>전체 검색 입력폼</legend>
+                                    <label class="srch_label">
+                                        <span class="blind">전체 검색</span>
+                                        <input type="text" id="keyword" autocomplete="off" 
+                                               title="검색어를 입력하세요." 
+                                               placeholder="원하는 연구장비를 검색해보세요" value="">
+                                    </label>
+                                    <button type="submit" class="btn_srch" title="검색">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn_lnb" id="mainMenuOpenBtn">
+                    <span>메뉴열기</span>
+                </button>
+            </div>
+            
+            <!-- Navigation -->
+            <nav id="mainHeaderMenuArea">
+                <ul class="depth01">
+                    <!-- 활성화시 'act' 클래스 추가 -->
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html">회사소개</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_1"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html" title="회사개요">회사개요</a></li>
+                            <li id="depth02_menu_2"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/history.html" title="연혁">연혁</a></li>
+                            <li id="depth02_menu_3"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/location.html" title="오시는길">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html">문의하기</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_5"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="일반문의">일반문의</a></li>
+                            <li id="depth02_menu_6"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="견적문의">견적문의</a></li>
+                            <li id="depth02_menu_7"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/kakao.html" title="리스">카톡문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html">장비매입</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_8"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="분석장비">분석장비</a></li>
+                            <li id="depth02_menu_9"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="계측장비">계측장비</a></li>
+                            <li id="depth02_menu_10"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="기타실험장비">기타실험장비</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/consulting">컨설팅</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_11"><a href="/consulting/selection" title="장비선정">장비선정</a></li>
+                            <li id="depth02_menu_12"><a href="/consulting/installation" title="설치지원">설치지원</a></li>
+                            <li id="depth02_menu_13"><a href="/consulting/training" title="교육훈련">교육훈련</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/support">공지사항</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_14"><a href="/support/inquiry" title="문의하기">공지사항</a></li>
+                            <li id="depth02_menu_15"><a href="/support/quote" title="견적요청">작업사진</a></li>
+                            <li id="depth02_menu_16"><a href="/support/faq" title="자주묻는질문">자주묻는질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="quick_set">
+                    <h3 class="tit">퀵메뉴 설정</h3>
+                    <button type="button" onclick="fn_quickSet('close');" class="btn_lnb_close">퀵메뉴 설정 닫기</button>
+                    
+                    <form action="/user/quick/menu/add" class="quicListAddFrm" id="menuAddFrm" method="post" name="menuAddFrm">
+                        <fieldset>
+                            <legend>퀵메뉴 설정 폼</legend>
+                            
+                            <!-- 현재 퀵메뉴 -->
+                            <dl class="cur_quick">
+                                <dt><span class="blind">현재 </span><var>&nbsp;</var>님의 퀵메뉴</dt>
+                                <dd class="fill ico5 numSet" id="default1823">
+                                    <strong>카톡문의</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1823','카톡문의');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[0].menuCd" value="1823">
+                                    <input type="hidden" class="menuSort" name="menus[0].sortNo" value="1">
+                                </dd>
+                            </dl>
+                            
+                            <div class="q_btn_box">
+                                <button type="reset" onclick="fn_quick_reset()" title="설정 초기화">초기화</button>
+                                <button type="button" class="submit" onclick="fn_quick_submit()" title="설정 저장">저장</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <article id="container">
+            <h2 class="blind">본문</h2>
+            
+            <!-- Kakao Section -->
+            <section class="kakao_section">
+                <div class="inner">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="location" id="menuNaviArea">
+                        <ul class="loc_dep01">
+                            <li class="not_navi_dep"><a href="/" class="loc_tit" title="메인으로 바로가기">메인</a></li>
+                            <li class="not_navi_dep"><a href="/contact" class="loc_tit" title="링크 이동">문의하기</a></li>
+                            <li class="">
+                                <a href="/contact/kakao" class="loc_tit arrow" title="하위메뉴 열기">카톡문의</a>
+                                <ul class="loc_dep02">
+                                    <li class="" id="loc_dep02_menu_1">
+                                        <a href="/contact/inquiry">일반문의</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_2">
+                                        <a href="/contact/quote">견적문의</a>
+                                    </li>
+                                    <li class="curr" id="loc_dep02_menu_3">
+                                        <a href="/contact/kakao">카톡문의</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Content -->
+                    <section id="content">
+                        <header class="header">
+                            <h2 class="tit">카톡문의</h2>
+                        </header>
+                        
+                        <!-- Kakao Intro -->
+                        <div class="kakao_intro">
+                            <h2 class="tit_page">카카오톡으로 간편하게 문의하세요</h2>
+                            <p class="tit_page_s">연구장비 전문가와 실시간으로 소통하며<br>빠르고 정확한 상담을 받아보세요.</p>
+                            
+                            <div class="intro_visual">
+                                <div class="kakao_phone_mockup">
+                                    <div class="phone_frame">
+                                        <div class="phone_screen">
+                                            <div class="chat_interface">
+                                                <div class="chat_header">
+                                                    <div class="chat_avatar">
+                                                        <img src="images/kakao_avatar.png" alt="연구장비매입센터">
+                                                    </div>
+                                                    <div class="chat_info">
+                                                        <h3>연구장비매입센터</h3>
+                                                        <p>평일 09:00-18:00</p>
+                                                    </div>
+                                                </div>
+                                                <div class="chat_messages">
+                                                    <div class="message received">
+                                                        <p>안녕하세요! 연구장비매입센터입니다. 어떤 도움이 필요하신가요? 😊</p>
+                                                    </div>
+                                                    <div class="message sent">
+                                                        <p>LC-MS/MS 장비 견적 문의드립니다.</p>
+                                                    </div>
+                                                    <div class="message received">
+                                                        <p>네, 상세한 견적을 도와드리겠습니다. 예산과 사용 목적을 알려주시면 더 정확한 제안을 드릴 수 있어요!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Kakao Features -->
+                        <div class="kakao_features">
+                            <h3 class="section_title">카카오톡 상담의 장점</h3>
+                            <div class="features_grid">
+                                <div class="feature_card">
+                                    <div class="feature_icon">⚡</div>
+                                    <h4>실시간 답변</h4>
+                                    <p>전문가가 즉시 답변하여 빠른 상담이 가능합니다.</p>
+                                </div>
+                                
+                                <div class="feature_card">
+                                    <div class="feature_icon">📱</div>
+                                    <h4>편리한 접근</h4>
+                                    <p>언제 어디서나 스마트폰으로 간편하게 문의하세요.</p>
+                                </div>
+                                
+                                <div class="feature_card">
+                                    <div class="feature_icon">📎</div>
+                                    <h4>파일 전송</h4>
+                                    <p>사진, 문서 등 필요한 자료를 바로 전송할 수 있습니다.</p>
+                                </div>
+                                
+                                <div class="feature_card">
+                                    <div class="feature_icon">💬</div>
+                                    <h4>상담 이력</h4>
+                                    <p>이전 대화 내용을 언제든 다시 확인할 수 있습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Kakao Channel -->
+                        <div class="kakao_channel_section">
+                            <h3 class="section_title">카카오톡 채널 추가하기</h3>
+                            <div class="channel_info">
+                                <div class="channel_card">
+                                    <div class="channel_qr">
+                                        <div class="qr_code">
+                                            <div class="qr_placeholder">
+                                                <div class="qr_pattern"></div>
+                                                <p>QR 코드</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="channel_details">
+                                        <h4>연구장비매입센터</h4>
+                                        <p class="channel_id">@research-equipment</p>
+                                        <p class="channel_desc">연구장비 전문 상담 채널</p>
+                                        
+                                        <div class="channel_buttons">
+                                            <button class="btn_kakao_add" onclick="addKakaoChannel()">
+                                                <span class="kakao_icon">💬</span>
+                                                채널 추가하기
+                                            </button>
+                                            <button class="btn_kakao_chat" onclick="openKakaoChat()">
+                                                <span class="kakao_icon">💬</span>
+                                                바로 상담하기
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Hours -->
+                        <div class="service_hours">
+                            <h3 class="section_title">상담 운영시간</h3>
+                            <div class="hours_grid">
+                                <div class="hours_card">
+                                    <div class="hours_icon">🕒</div>
+                                    <h4>평일 상담</h4>
+                                    <div class="hours_info">
+                                        <p class="hours_time">09:00 - 18:00</p>
+                                        <p class="hours_desc">전문가가 실시간으로 답변합니다</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="hours_card">
+                                    <div class="hours_icon">🌙</div>
+                                    <h4>야간/주말</h4>
+                                    <div class="hours_info">
+                                        <p class="hours_time">18:00 - 09:00</p>
+                                        <p class="hours_desc">자동응답으로 안내드립니다</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="hours_card">
+                                    <div class="hours_icon">📞</div>
+                                    <h4>긴급 문의</h4>
+                                    <div class="hours_info">
+                                        <p class="hours_time">24시간</p>
+                                        <p class="hours_desc">전화: 02-1234-5678</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Questions -->
+                        <div class="quick_questions">
+                            <h3 class="section_title">자주 묻는 질문</h3>
+                            <div class="questions_list">
+                                <div class="question_item">
+                                    <button class="question_btn" onclick="toggleQuestion(this)">
+                                        <span>카카오톡 상담은 무료인가요?</span>
+                                        <span class="question_arrow">▼</span>
+                                    </button>
+                                    <div class="question_answer">
+                                        <p>네, 카카오톡 상담은 완전 무료입니다. 장비 견적, 기술 문의, 구매 상담 등 모든 서비스를 무료로 제공합니다.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="question_item">
+                                    <button class="question_btn" onclick="toggleQuestion(this)">
+                                        <span>상담 응답 시간은 얼마나 걸리나요?</span>
+                                        <span class="question_arrow">▼</span>
+                                    </button>
+                                    <div class="question_answer">
+                                        <p>평일 09:00-18:00 운영시간 내에는 평균 5분 이내에 답변드립니다. 복잡한 문의의 경우 최대 30분까지 소요될 수 있습니다.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="question_item">
+                                    <button class="question_btn" onclick="toggleQuestion(this)">
+                                        <span>파일 전송이 가능한가요?</span>
+                                        <span class="question_arrow">▼</span>
+                                    </button>
+                                    <div class="question_answer">
+                                        <p>네, 사진, PDF, Excel 등 다양한 파일 형식을 전송할 수 있습니다. 장비 사양서, 실험실 사진 등을 보내주시면 더 정확한 상담이 가능합니다.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="question_item">
+                                    <button class="question_btn" onclick="toggleQuestion(this)">
+                                        <span>채널을 삭제하고 싶어요</span>
+                                        <span class="question_arrow">▼</span>
+                                    </button>
+                                    <div class="question_answer">
+                                        <p>카카오톡 > 채널 > 연구장비매입센터 > 채널 설정 > 채널 삭제를 통해 언제든 삭제하실 수 있습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Alternatives -->
+                        <div class="contact_alternatives">
+                            <h3 class="section_title">다른 문의 방법</h3>
+                            <div class="alternatives_grid">
+                                <div class="alternative_card">
+                                    <div class="alt_icon">📞</div>
+                                    <h4>전화 상담</h4>
+                                    <p>02-1234-5678</p>
+                                    <p class="alt_desc">즉시 상담 가능</p>
+                                    <a href="tel:02-1234-5678" class="alt_btn">전화걸기</a>
+                                </div>
+                                
+                                <div class="alternative_card">
+                                    <div class="alt_icon">📧</div>
+                                    <h4>이메일 문의</h4>
+                                    <p>info@research-equipment.co.kr</p>
+                                    <p class="alt_desc">24시간 접수</p>
+                                    <a href="mailto:info@research-equipment.co.kr" class="alt_btn">이메일 보내기</a>
+                                </div>
+                                
+                                <div class="alternative_card">
+                                    <div class="alt_icon">🌐</div>
+                                    <h4>온라인 문의</h4>
+                                    <p>웹사이트 문의폼</p>
+                                    <p class="alt_desc">상세한 문의 가능</p>
+                                    <a href="../research-equipment-shop-1.0/contact.html" class="alt_btn">문의하기</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA Section -->
+                        <div class="kakao_cta">
+                            <h3>지금 바로 카카오톡으로 문의하세요</h3>
+                            <p>연구장비 전문가와 실시간으로 소통하며<br>최적의 솔루션을 찾아보세요.</p>
+                            <div class="cta_buttons">
+                                <button class="btn_primary" onclick="addKakaoChannel()">
+                                    <span class="kakao_icon">💬</span>
+                                    채널 추가하기
+                                </button>
+                                <button class="btn_secondary" onclick="openKakaoChat()">
+                                    <span class="kakao_icon">💬</span>
+                                    바로 상담하기
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </article>
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="footer_top">
+                <div class="inner">
+                    <div class="company_info">
+                        <h3>연구장비 구매 전문 플랫폼</h3>
+                        <address>
+                            서울특별시 강남구 테헤란로 123 (역삼동)<br>
+                            대표전화: 02-1234-5678 | 팩스: 02-1234-5679<br>
+                            사업자등록번호: 123-45-67890 | 대표자: 홍길동
+                        </address>
+                    </div>
+                    <dl class="contact_info">
+                        <dt>고객센터</dt>
+                        <dd>1588-1234</dd>
+                        <dd>평일 09:00-18:00</dd>
+                    </dl>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">사이트맵</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="inner">
+                    <div class="bot">
+                        <div class="copy">
+                            <p>Copyright © 2024 연구장비 구매 전문 플랫폼. All rights reserved.</p>
+                        </div>
+                        <div class="certify">
+                            <p>인증마크</p>
+                        </div>
+                        <div class="agency">
+                            <img src="images/logo_msit.png" alt="과학기술정보통신부">
+                            <img src="images/logo_nfec.png" alt="국가연구시설장비진흥센터">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- 카카오톡 채널 추가 버튼 (고정) -->
+    <div id="kakaoChannelBtn" class="kakao_channel_btn">
+        <button onclick="addKakaoChannel()">
+            <img src="images/kakao_icon.png" alt="카카오톡">
+            <span>채널 추가</span>
+        </button>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // 카카오 SDK 초기화 (실제 앱 키로 교체 필요)
+        Kakao.init('YOUR_KAKAO_APP_KEY');
+        
+        // 카카오톡 채널 상담 열기
+        function openKakaoChat() {
+            // 실제 카카오톡 채널 ID로 교체 필요
+            Kakao.Channel.chat({
+                channelPublicId: '_research_equipment'
+            });
+        }
+        
+        // 카카오톡 채널 추가
+        function addKakaoChannel() {
+            Kakao.Channel.addChannel({
+                channelPublicId: '_research_equipment'
+            });
+        }
+        
+        // FAQ 토글 기능
+        function toggleQuestion(button) {
+            const questionItem = button.parentElement;
+            const answer = questionItem.querySelector('.question_answer');
+            const arrow = button.querySelector('.question_arrow');
+            
+            questionItem.classList.toggle('active');
+            
+            if (questionItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                arrow.textContent = '▲';
+            } else {
+                answer.style.maxHeight = '0';
+                arrow.textContent = '▼';
+            }
+        }
+        
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // 애니메이션 요소 관찰
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.feature_card, .hours_card, .alternative_card, .question_item');
+            animateElements.forEach(el => observer.observe(el));
+        });
+        
+        // 카카오톡 채널 버튼 스크롤 효과
+        window.addEventListener('scroll', () => {
+            const kakaoBtn = document.getElementById('kakaoChannelBtn');
+            if (window.scrollY > 300) {
+                kakaoBtn.classList.add('show');
+            } else {
+                kakaoBtn.classList.remove('show');
+            }
+        });
+        
+        // 채팅 애니메이션
+        function animateChat() {
+            const messages = document.querySelectorAll('.message');
+            messages.forEach((message, index) => {
+                setTimeout(() => {
+                    message.classList.add('show');
+                }, index * 1000);
+            });
+        }
+        
+        // 페이지 로드 시 채팅 애니메이션 시작
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(animateChat, 1000);
+        });
+    </script>
+</body>
+</html>
