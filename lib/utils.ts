@@ -5,7 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-<<<<<<< HEAD
 export function formatPrice(price: number | string): string {
   // string인 경우 숫자로 변환 가능하면 변환, 아니면 그대로 반환
   if (typeof price === 'string') {
@@ -20,9 +19,6 @@ export function formatPrice(price: number | string): string {
     return price
   }
   // number인 경우 기존 로직 사용
-=======
-export function formatPrice(price: number): string {
->>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
   return new Intl.NumberFormat('ko-KR', {
     style: 'currency',
     currency: 'KRW',

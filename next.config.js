@@ -13,9 +13,8 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    optimizePackageImports: ['@/components'],
-  },
+  // Next.js 16: optimizePackageImports는 안정화되어 experimental에서 제거됨
+  optimizePackageImports: ['@/components'],
 }
 
 module.exports = nextConfig

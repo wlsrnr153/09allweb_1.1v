@@ -17,11 +17,7 @@ export const sampleEquipment = [
     model: '1260 Infinity II',
     categoryId: '1',
     category: { name: '분석장비', slug: 'analytical' },
-<<<<<<< HEAD
     price: '별도협의',
-=======
-    price: 85000000,
->>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
     priceUnit: 'KRW',
     condition: 'new' as const,
     status: 'available' as const,
