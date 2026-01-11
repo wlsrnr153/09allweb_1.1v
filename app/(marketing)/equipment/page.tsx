@@ -9,6 +9,7 @@ type SortOption = 'latest' | 'price-low' | 'price-high' | 'popular'
 
 const ITEMS_PER_PAGE = 12
 
+<<<<<<< HEAD
 // 가격을 숫자로 변환하는 헬퍼 함수
 function getNumericPrice(price: number | string): number | null {
   if (typeof price === 'number') {
@@ -21,12 +22,17 @@ function getNumericPrice(price: number | string): number | null {
   return null // "문의", "협의" 등 숫자로 변환 불가능한 경우
 }
 
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
 export default function EquipmentPage() {
   const [filters, setFilters] = useState<FilterState>({
     category: [],
     brand: [],
     priceRange: null,
+<<<<<<< HEAD
     includeNonNumericPrice: false,
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
     condition: [],
     year: null,
     keyword: '',
@@ -52,6 +58,7 @@ export default function EquipmentPage() {
 
     // 가격 범위 필터
     if (filters.priceRange) {
+<<<<<<< HEAD
       result = result.filter((eq) => {
         const numericPrice = getNumericPrice(eq.price)
         if (numericPrice === null) {
@@ -64,6 +71,11 @@ export default function EquipmentPage() {
     } else if (filters.includeNonNumericPrice) {
       // 가격 범위가 없지만 문자열 가격만 필터링하는 경우
       result = result.filter((eq) => getNumericPrice(eq.price) === null)
+=======
+      result = result.filter(
+        (eq) => eq.price >= filters.priceRange!.min && eq.price <= filters.priceRange!.max
+      )
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
     }
 
     // 상태 필터
@@ -89,6 +101,7 @@ export default function EquipmentPage() {
         result.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
         break
       case 'price-low':
+<<<<<<< HEAD
         result.sort((a, b) => {
           const priceA = getNumericPrice(a.price) ?? Infinity
           const priceB = getNumericPrice(b.price) ?? Infinity
@@ -101,6 +114,12 @@ export default function EquipmentPage() {
           const priceB = getNumericPrice(b.price) ?? -Infinity
           return priceB - priceA
         })
+=======
+        result.sort((a, b) => a.price - b.price)
+        break
+      case 'price-high':
+        result.sort((a, b) => b.price - a.price)
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
         break
       case 'popular':
         result.sort((a, b) => b.viewCount - a.viewCount)
@@ -231,7 +250,10 @@ export default function EquipmentPage() {
                       category: [],
                       brand: [],
                       priceRange: null,
+<<<<<<< HEAD
                       includeNonNumericPrice: false,
+=======
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
                       condition: [],
                       year: null,
                       keyword: '',

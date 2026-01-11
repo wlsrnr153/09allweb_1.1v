@@ -11,7 +11,11 @@ interface Equipment {
   brand: string
   model: string
   category: { name: string; slug: string }
+<<<<<<< HEAD
   price: number | string
+=======
+  price: number
+>>>>>>> 3239ec7a1d549603c3f6a29f68585b6b84c1e801
   condition: 'new' | 'refurbished' | 'demo'
   year: number
   warranty?: string
