@@ -1,4 +1,4 @@
-// Kakao SDK Utility Functions
+﻿// Kakao SDK Utility Functions
 
 declare global {
   interface Window {
@@ -44,7 +44,7 @@ export const openKakaoApp = (channelId?: string) => {
     const kakaoUrl = `kakaoplus://plusfriend/talk/chat/${finalChannelId}`
     window.location.href = kakaoUrl
 
-    // 앱이 없는 경우 웹 채팅으로 폴백
+    // ?깆씠 ?녿뒗 寃쎌슦 ??梨꾪똿?쇰줈 ?대갚
     setTimeout(() => {
       openKakaoChannel()
     }, 500)
@@ -73,7 +73,7 @@ export const shareToKakao = (data: {
       },
       buttons: [
         {
-          title: '자세히 보기',
+          title: '?먯꽭??蹂닿린',
           link: {
             mobileWebUrl: data.link,
             webUrl: data.link,
@@ -92,3 +92,25 @@ export const copyMessageToClipboard = (message: string) => {
   }
 }
 
+/**
+ * 移댁뭅?ㅽ넚 ?ㅽ뵂 梨꾪똿諛??닿린
+ * ?섍꼍 蹂?섏뿉 NEXT_PUBLIC_KAKAO_OPEN_CHAT_LINK媛 ?ㅼ젙?섏뼱 ?덉쑝硫??ъ슜?섍퀬,
+ * ?놁쑝硫?湲곕낯 留곹겕(https://open.kakao.com/o/sgiKk1Uh)瑜??ъ슜?⑸땲??
+ */
+export const openKakaoOpenChat = () => {
+  const openChatLink = process.env.NEXT_PUBLIC_KAKAO_OPEN_CHAT_LINK || 'https://open.kakao.com/o/sgiKk1Uh'
+  
+  if (typeof window === 'undefined') {
+    return
+  }
+
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  
+  if (isMobile) {
+    // 紐⑤컮?? 移댁뭅?ㅽ넚 ?깆씠 ?ㅼ튂?섏뼱 ?덉쑝硫??깆쑝濡??닿린 ?쒕룄
+    // ?ㅽ뵂 梨꾪똿諛⑹? 吏곸젒 留곹겕瑜??ъ슜?섎뒗 寃껋씠 媛???덉젙??    window.open(openChatLink, '_blank')
+  } else {
+    // ?곗뒪?ы넲: ????뿉???닿린
+    window.open(openChatLink, '_blank')
+  }
+}

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { sampleEquipment, sampleCategories } from '@/lib/data/sample-equipment'
 import { samplePortfolio } from '@/lib/data/sample-portfolio'
 import EquipmentCard from '@/components/equipment/EquipmentCard'
-import { openKakaoChannel } from '@/lib/kakao'
+import { openKakaoOpenChat } from '@/lib/kakao'
 
 export default function HomePage() {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -153,7 +153,7 @@ export default function HomePage() {
               </div>
             </div>
             <button
-              onClick={openKakaoChannel}
+              onClick={openKakaoOpenChat}
               className="px-6 md:px-8 py-3 md:py-4 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl whitespace-nowrap text-sm md:text-base"
             >
               카카오톡 상담 시작하기 →
@@ -514,7 +514,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* 카카오톡 버튼 - 강조 */}
             <button
-              onClick={openKakaoChannel}
+              onClick={openKakaoOpenChat}
               className="px-10 py-5 bg-[#FEE500] text-gray-900 font-bold rounded-xl hover:bg-[#FDD835] transition-all shadow-2xl hover:shadow-[#FEE500]/50 hover:scale-105 inline-flex items-center justify-center gap-3 text-lg relative group"
             >
               <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">

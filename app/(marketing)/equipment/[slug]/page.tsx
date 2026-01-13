@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import { sampleEquipment } from '@/lib/data/sample-equipment'
 import { formatPrice } from '@/lib/utils'
-import { openKakaoChannel } from '@/lib/kakao'
+import { openKakaoOpenChat } from '@/lib/kakao'
 
 export default function EquipmentDetailPage() {
   const params = useParams()
@@ -43,8 +43,8 @@ export default function EquipmentDetailPage() {
       navigator.clipboard.writeText(message)
     }
     
-    // 카카오톡 채널 오픈
-    openKakaoChannel()
+    // 카카오톡 오픈 채팅방 열기
+    openKakaoOpenChat()
   }
 
   return (

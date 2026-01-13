@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { openKakaoChannel } from '@/lib/kakao'
+import { openKakaoOpenChat } from '@/lib/kakao'
 
 export default function FloatingButtons() {
   const [isVisible, setIsVisible] = useState(false)
@@ -30,7 +30,7 @@ export default function FloatingButtons() {
     <>
       {/* Kakao FAB - 강화된 버전 */}
       <button
-        onClick={openKakaoChannel}
+        onClick={openKakaoOpenChat}
         className="fixed bottom-24 right-6 z-40 w-16 h-16 md:w-20 md:h-20 bg-[#FEE500] rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 hover:shadow-[#FEE500]/50 hover:shadow-2xl group animate-pulse"
         aria-label="카카오톡 상담"
       >
@@ -103,7 +103,7 @@ export default function FloatingButtons() {
             전화문의
           </a>
           <button
-            onClick={openKakaoChannel}
+            onClick={openKakaoOpenChat}
             className="flex items-center justify-center py-4 text-sm font-medium text-white bg-[#FEE500] hover:bg-[#FDD835] transition-colors"
           >
             <svg

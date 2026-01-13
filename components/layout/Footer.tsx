@@ -64,6 +64,21 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/brands" className="hover:text-primary-400 transition-colors">
+                  브랜드 소개
+                </Link>
+              </li>
+              <li>
+                <Link href="/process" className="hover:text-primary-400 transition-colors">
+                  매입 프로세스
+                </Link>
+              </li>
+              <li>
+                <Link href="/guide" className="hover:text-primary-400 transition-colors">
+                  매입 가이드
+                </Link>
+              </li>
+              <li>
                 <Link href="/portfolio" className="hover:text-primary-400 transition-colors">
                   매입실적
                 </Link>

@@ -3,7 +3,7 @@
 import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { sampleEquipment } from '@/lib/data/sample-equipment'
-import { openKakaoChannel } from '@/lib/kakao'
+import { openKakaoOpenChat } from '@/lib/kakao'
 
 function ContactForm() {
   const searchParams = useSearchParams()
@@ -71,8 +71,8 @@ function ContactForm() {
       navigator.clipboard.writeText(message)
     }
 
-    // 카카오톡 채널 오픈
-    openKakaoChannel()
+    // 카카오톡 오픈 채팅방 열기
+    openKakaoOpenChat()
   }
 
   if (submitted) {

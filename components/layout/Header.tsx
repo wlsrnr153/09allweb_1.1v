@@ -17,6 +17,19 @@ const menuItems = [
   {
     label: '매입 가능 장비',
     href: '/equipment',
+    subItems: [
+      { label: '전체 장비', href: '/equipment' },
+      { label: '브랜드 소개', href: '/brands' },
+    ],
+  },
+  {
+    label: '매입 안내',
+    href: '/process',
+    subItems: [
+      { label: '매입 프로세스', href: '/process' },
+      { label: '매입 가이드', href: '/guide' },
+      { label: '배송/수거 안내', href: '/shipping' },
+    ],
   },
   {
     label: '매입실적',
