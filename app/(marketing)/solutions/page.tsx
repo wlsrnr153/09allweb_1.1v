@@ -57,9 +57,9 @@ export default function SolutionsPage() {
       },
       benefits: [
         '한 번의 방문으로 해결',
-        '통합 처리 할인 (10%)',
-        '최적의 비용 효율',
-        '모든 증명서 발급',
+        '통합 처리시 비용 절감',
+        '최적의 비용 효율적',
+        '처리 확인서 등 발급',
       ],
     },
   }
@@ -321,7 +321,7 @@ export default function SolutionsPage() {
               <div className="text-3xl font-bold mb-2">10-20%</div>
               <div className="text-purple-100">비용 절감</div>
               <p className="text-sm text-purple-200 mt-2">
-                통합 처리<br />할인 적용
+                통합 처리<br />비용 절감
               </p>
             </div>
 
@@ -330,7 +330,7 @@ export default function SolutionsPage() {
               <div className="text-3xl font-bold mb-2">100%</div>
               <div className="text-purple-100">편의성</div>
               <p className="text-sm text-purple-200 mt-2">
-                모든 증명서<br />한 번에 발급
+                처리 확인서 등 <br />한 번에 발급
               </p>
             </div>
           </div>
