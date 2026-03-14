@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 그라데이션 정의 -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 그림자 필터 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 배경 원형 -->
+  <circle cx="40" cy="40" r="35" fill="url(#mainGradient)" filter="url(#shadow)"/>
+  
+  <!-- 연구장비 아이콘들 -->
+  <!-- 현미경 -->
+  <g transform="translate(25, 25)">
+    <ellipse cx="15" cy="20" rx="8" ry="12" fill="none" stroke="white" stroke-width="2"/>
+    <circle cx="15" cy="20" r="3" fill="white"/>
+    <line x1="15" y1="8" x2="15" y2="32" stroke="white" stroke-width="2"/>
+    <line x1="7" y1="8" x2="23" y2="8" stroke="white" stroke-width="2"/>
+    <line x1="7" y1="32" x2="23" y2="32" stroke="white" stroke-width="2"/>
+  </g>
+  
+  <!-- 플라스크 -->
+  <g transform="translate(35, 30)">
+    <path d="M5 5 L5 25 Q5 30 10 30 L20 30 Q25 30 25 25 L25 5" fill="none" stroke="white" stroke-width="1.5"/>
+    <line x1="5" y1="10" x2="25" y2="10" stroke="white" stroke-width="1"/>
+    <line x1="5" y1="15" x2="25" y2="15" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- 회사명 -->
+  <text x="90" y="35" font-family="'Noto Sans KR', 'Malgun Gothic', sans-serif" font-size="24" font-weight="700" fill="url(#mainGradient)">
+    기자재의모든것
+  </text>
+  
+  <!-- 영문 서브타이틀 -->
+  <text x="90" y="55" font-family="'Arial', sans-serif" font-size="12" font-weight="500" fill="#6c757d">
+    Research Equipment Shop
+  </text>
+  
+  <!-- 장식적 요소들 -->
+  <circle cx="280" cy="20" r="3" fill="url(#iconGradient)" opacity="0.7"/>
+  <circle cx="270" cy="35" r="2" fill="url(#iconGradient)" opacity="0.5"/>
+  <circle cx="285" cy="50" r="2.5" fill="url(#iconGradient)" opacity="0.6"/>
+  
+  <!-- 연결선 -->
+  <line x1="75" y1="40" x2="85" y2="40" stroke="url(#iconGradient)" stroke-width="2" opacity="0.8"/>
+</svg>
