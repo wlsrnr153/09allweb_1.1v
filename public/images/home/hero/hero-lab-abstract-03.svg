@@ -1,0 +1,18 @@
+﻿<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="1080" x2="1920" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#31136C"/>
+      <stop offset="1" stop-color="#1849A7"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1260 300) rotate(25) scale(520 360)">
+      <stop stop-color="#9DB8FF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#9DB8FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg3)"/>
+  <path d="M0 250C180 320 330 330 520 290C710 250 900 255 1110 320C1320 385 1570 390 1920 280V0H0V250Z" fill="white" fill-opacity="0.09"/>
+  <rect x="140" y="410" width="720" height="420" rx="28" fill="white" fill-opacity="0.1"/>
+  <rect x="940" y="360" width="860" height="470" rx="34" fill="white" fill-opacity="0.08"/>
+  <path d="M160 880C380 760 600 740 830 810C1060 880 1270 900 1510 820C1660 770 1780 770 1920 810" stroke="#D4DDFF" stroke-opacity="0.38" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="1260" cy="300" r="420" fill="url(#glow3)"/>
+</svg>

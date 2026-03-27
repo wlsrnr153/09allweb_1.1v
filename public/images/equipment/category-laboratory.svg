@@ -1,0 +1,15 @@
+﻿<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="l-bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#355B1A"/>
+      <stop offset="1" stop-color="#70B036"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#l-bg)"/>
+  <rect x="200" y="150" width="620" height="380" rx="26" fill="white" fill-opacity="0.11"/>
+  <rect x="900" y="210" width="500" height="300" rx="22" fill="white" fill-opacity="0.1"/>
+  <path d="M0 700C180 640 360 640 540 700C720 760 900 760 1080 700C1260 640 1430 650 1600 710V900H0V700Z" fill="white" fill-opacity="0.13"/>
+  <circle cx="1260" cy="190" r="90" fill="white" fill-opacity="0.15"/>
+  <text x="200" y="640" fill="white" fill-opacity="0.95" font-size="58" font-family="'Segoe UI', Arial, sans-serif" font-weight="700">실험장비</text>
+  <text x="200" y="690" fill="white" fill-opacity="0.9" font-size="30" font-family="'Segoe UI', Arial, sans-serif">Laboratory Equipment</text>
+</svg>

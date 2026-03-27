@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="연구장비매입센터 문의하기 - 카카오톡 채널을 통해 빠르고 편리하게 연구장비 관련 상담을 받으실 수 있습니다.">
+    <meta name="keywords" content="연구장비문의, 카카오톡상담, 장비문의, 견적문의, 기술지원">
+    <meta name="format-detection" content="telephone=no">
+    <title>문의하기 - 기자재의 모든곳</title>
+    <link rel="shortcut icon" href="file:C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" type="image/ico">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- 카카오 JavaScript SDK -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+</head>
+<body>
+    <a href="#container" class="skip">본문바로가기</a>
+    
+    <div id="wrap">
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="logo_area">
+                    <h1 class="site_id">
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/index.html" title="메인 바로가기">
+                            <img src="images/logo_simple.svg" alt="기자재의모든것">
+                        </a>
+                    </h1>
+                    
+                    <div class="srch_lnb">
+                        <div class="srch_inner">
+                            <form action="/search" id="srchForm" name="srchForm">
+                                <fieldset class="srch_field">
+                                    <legend>전체 검색 입력폼</legend>
+                                    <label class="srch_label">
+                                        <span class="blind">전체 검색</span>
+                                        <input type="text" id="keyword" autocomplete="off" 
+                                               title="검색어를 입력하세요." 
+                                               placeholder="원하는 연구장비를 검색해보세요" value="">
+                                    </label>
+                                    <button type="submit" class="btn_srch" title="검색">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn_lnb" id="mainMenuOpenBtn">
+                    <span>메뉴열기</span>
+                </button>
+            </div>
+            
+            <!-- Navigation -->
+            <nav id="mainHeaderMenuArea">
+                <ul class="depth01">
+                    <!-- 활성화시 'act' 클래스 추가 -->
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html">회사소개</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_1"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/about.html" title="회사개요">회사개요</a></li>
+                            <li id="depth02_menu_2"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/history.html" title="연혁">연혁</a></li>
+                            <li id="depth02_menu_3"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/location.html" title="오시는길">오시는길</a></li>
+                            <li id="depth02_menu_4"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="문의하기">문의하기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html">문의하기</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_5"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="일반문의">일반문의</a></li>
+                            <li id="depth02_menu_6"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/contact.html" title="견적문의">견적문의</a></li>
+                            <li id="depth02_menu_7"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/kakao.html" title="카톡문의">카톡문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html">장비매입</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_8"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="분석장비">분석장비</a></li>
+                            <li id="depth02_menu_9"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="계측장비">계측장비</a></li>
+                            <li id="depth02_menu_10"><a href="file:///C:/Users/bb/Desktop/web_scrap_v2/research-equipment-shop-1.0/equipment.html" title="기타실험장비">기타실험장비</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/consulting">컨설팅</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_11"><a href="/consulting/selection" title="장비선정">장비선정</a></li>
+                            <li id="depth02_menu_12"><a href="/consulting/installation" title="설치지원">설치지원</a></li>
+                            <li id="depth02_menu_13"><a href="/consulting/training" title="교육훈련">교육훈련</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/support">고객지원</a>
+                        <ul class="depth02">
+                            <li id="depth02_menu_14"><a href="/support/inquiry" title="문의하기">문의하기</a></li>
+                            <li id="depth02_menu_15"><a href="/support/quote" title="견적요청">견적요청</a></li>
+                            <li id="depth02_menu_16"><a href="/support/faq" title="자주묻는질문">자주묻는질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="quick_set">
+                    <h3 class="tit">퀵메뉴 설정</h3>
+                    <button type="button" onclick="fn_quickSet('close');" class="btn_lnb_close">퀵메뉴 설정 닫기</button>
+                    
+                    <form action="/user/quick/menu/add" class="quicListAddFrm" id="menuAddFrm" method="post" name="menuAddFrm">
+                        <fieldset>
+                            <legend>퀵메뉴 설정 폼</legend>
+                            
+                            <!-- 현재 퀵메뉴 -->
+                            <dl class="cur_quick">
+                                <dt><span class="blind">현재 </span><var>&nbsp;</var>님의 퀵메뉴</dt>
+                                <dd class="fill ico8 numSet" id="default1823">
+                                    <strong>문의하기</strong>
+                                    <button type="button" class="btn_del" onclick="fn_chkCancel('1823','문의하기');" title="메뉴 삭제">메뉴 삭제</button>
+                                    <input type="hidden" class="menuCd" name="menus[0].menuCd" value="1823">
+                                    <input type="hidden" class="menuSort" name="menus[0].sortNo" value="1">
+                                </dd>
+                            </dl>
+                            
+                            <div class="q_btn_box">
+                                <button type="reset" onclick="fn_quick_reset()" title="설정 초기화">초기화</button>
+                                <button type="button" class="submit" onclick="fn_quick_submit()" title="설정 저장">저장</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Main Content -->
+        <article id="container">
+            <h2 class="blind">본문</h2>
+            
+            <!-- Contact Section -->
+            <section class="contact_section">
+                <div class="inner">
+                    <!-- Breadcrumb Navigation -->
+                    <nav class="location" id="menuNaviArea">
+                        <ul class="loc_dep01">
+                            <li class="not_navi_dep"><a href="/" class="loc_tit" title="메인으로 바로가기">메인</a></li>
+                            <li class="not_navi_dep"><a href="/contact" class="loc_tit" title="링크 이동">문의하기</a></li>
+                            <li class="">
+                                <a href="/contact/inquiry" class="loc_tit arrow" title="하위메뉴 열기">일반문의</a>
+                                <ul class="loc_dep02">
+                                    <li class="curr" id="loc_dep02_menu_1">
+                                        <a href="/contact/inquiry">일반문의</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_2">
+                                        <a href="/contact/quote">견적문의</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_3">
+                                        <a href="/contact/support">기술지원</a>
+                                    </li>
+                                    <li class="" id="loc_dep02_menu_4">
+                                        <a href="/contact/partnership">제휴문의</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Content -->
+                    <section id="content">
+                        <header class="header">
+                            <h2 class="tit">문의하기</h2>
+                        </header>
+                        
+                        <!-- Contact Intro -->
+                        <div class="contact_intro">
+                            <h2 class="tit_page">빠르고 정확한 상담을 받아보세요</h2>
+                            <p class="tit_page_s">연구장비 전문가가 귀하의 문의에 신속하고 정확하게 답변드립니다.<br>카카오톡 채널을 통해 더욱 편리하게 상담받으실 수 있습니다.</p>
+                        </div>
+                        
+                        <!-- Contact Methods -->
+                        <div class="contact_methods">
+                            <h3 class="section_title">상담 방법 선택</h3>
+                            <div class="methods_grid">
+                                <!-- 카카오톡 상담 -->
+                                <div class="method_card kakao">
+                                    <div class="method_icon">
+                                        <img src="images/kakao_icon.png" alt="카카오톡">
+                                    </div>
+                                    <h4>카카오톡 상담</h4>
+                                    <p>실시간 채팅으로 빠른 답변<br>평일 09:00-18:00</p>
+                                    <div class="method_features">
+                                        <span>✓ 실시간 답변</span>
+                                        <span>✓ 파일 전송 가능</span>
+                                        <span>✓ 상담 이력 보관</span>
+                                    </div>
+                                    <button class="btn_method" onclick="openKakaoChat()">카카오톡 상담하기</button>
+                                </div>
+                                
+                                <!-- 전화 상담 -->
+                                <div class="method_card phone">
+                                    <div class="method_icon">📞</div>
+                                    <h4>전화 상담</h4>
+                                    <p>전문가와 직접 통화<br>평일 09:00-18:00</p>
+                                    <div class="method_features">
+                                        <span>✓ 즉시 상담</span>
+                                        <span>✓ 전문가 직통</span>
+                                        <span>✓ 복잡한 문의 적합</span>
+                                    </div>
+                                    <a href="tel:1588-1234" class="btn_method">📞 1588-1234</a>
+                                </div>
+                                
+                                <!-- 이메일 문의 -->
+                                <div class="method_card email">
+                                    <div class="method_icon">📧</div>
+                                    <h4>이메일 문의</h4>
+                                    <p>상세한 문의사항 전달<br>24시간 접수</p>
+                                    <div class="method_features">
+                                        <span>✓ 24시간 접수</span>
+                                        <span>✓ 자료 첨부 가능</span>
+                                        <span>✓ 상세한 답변</span>
+                                    </div>
+                                    <a href="mailto:info@research-equipment.co.kr" class="btn_method">이메일 보내기</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Contact Form -->
+                        <div class="quick_contact">
+                            <h3 class="section_title">빠른 문의</h3>
+                            <form id="quickContactForm" class="contact_form">
+                                <div class="form_row">
+                                    <div class="form_group">
+                                        <label for="inquiryType">문의 유형</label>
+                                        <select id="inquiryType" name="inquiryType" required>
+                                            <option value="">선택해주세요</option>
+                                            <option value="equipment">장비 구매 문의</option>
+                                            <option value="rental">장비 임대 문의</option>
+                                            <option value="maintenance">유지보수 문의</option>
+                                            <option value="consulting">컨설팅 문의</option>
+                                            <option value="quote">견적 요청</option>
+                                            <option value="support">기술 지원</option>
+                                            <option value="partnership">제휴 문의</option>
+                                            <option value="other">기타</option>
+                                        </select>
+                                    </div>
+                                    <div class="form_group">
+                                        <label for="urgency">긴급도</label>
+                                        <select id="urgency" name="urgency" required>
+                                            <option value="">선택해주세요</option>
+                                            <option value="high">긴급 (당일 답변 필요)</option>
+                                            <option value="medium">보통 (2-3일 내 답변)</option>
+                                            <option value="low">일반 (1주일 내 답변)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form_row">
+                                    <div class="form_group">
+                                        <label for="customerName">성함</label>
+                                        <input type="text" id="customerName" name="customerName" required placeholder="성함을 입력해주세요">
+                                    </div>
+                                    <div class="form_group">
+                                        <label for="company">회사/기관명</label>
+                                        <input type="text" id="company" name="company" placeholder="회사 또는 기관명을 입력해주세요">
+                                    </div>
+                                </div>
+                                
+                                <div class="form_row">
+                                    <div class="form_group">
+                                        <label for="phone">연락처</label>
+                                        <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+                                    </div>
+                                    <div class="form_group">
+                                        <label for="email">이메일</label>
+                                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                                    </div>
+                                </div>
+                                
+                                <div class="form_group full">
+                                    <label for="equipmentInfo">관심 장비 정보 (선택사항)</label>
+                                    <input type="text" id="equipmentInfo" name="equipmentInfo" placeholder="예: LC-MS/MS, Agilent 6470 등">
+                                </div>
+                                
+                                <div class="form_group full">
+                                    <label for="message">문의 내용</label>
+                                    <textarea id="message" name="message" required placeholder="문의하실 내용을 상세히 작성해주세요. 
+예산 범위, 사용 목적, 설치 환경 등의 정보를 포함하시면 더 정확한 답변을 드릴 수 있습니다." rows="6"></textarea>
+                                </div>
+                                
+                                <div class="form_group full">
+                                    <div class="checkbox_group">
+                                        <label class="checkbox_label">
+                                            <input type="checkbox" id="privacy" name="privacy" required>
+                                            <span class="checkmark"></span>
+                                            개인정보 수집 및 이용에 동의합니다. <a href="/privacy" target="_blank">자세히 보기</a>
+                                        </label>
+                                        <label class="checkbox_label">
+                                            <input type="checkbox" id="marketing" name="marketing">
+                                            <span class="checkmark"></span>
+                                            마케팅 정보 수신에 동의합니다. (선택)
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form_buttons">
+                                    <button type="button" class="btn_reset" onclick="resetForm()">초기화</button>
+                                    <button type="submit" class="btn_submit">문의 보내기</button>
+                                    <button type="button" class="btn_kakao" onclick="sendToKakao()">카카오톡으로 보내기</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- FAQ Section -->
+                        <div class="faq_section">
+                            <h3 class="section_title">자주 묻는 질문</h3>
+                            <div class="faq_list">
+                                <div class="faq_item">
+                                    <button class="faq_question" onclick="toggleFaq(this)">
+                                        <span>장비 구매 시 설치 서비스도 제공하나요?</span>
+                                        <span class="faq_arrow">▼</span>
+                                    </button>
+                                    <div class="faq_answer">
+                                        <p>네, 모든 장비 구매 시 전문 기술진이 직접 설치 및 초기 세팅을 진행합니다. 또한 장비 운영 교육도 함께 제공하여 즉시 사용하실 수 있도록 지원합니다.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq_item">
+                                    <button class="faq_question" onclick="toggleFaq(this)">
+                                        <span>견적 요청 후 답변까지 얼마나 걸리나요?</span>
+                                        <span class="faq_arrow">▼</span>
+                                    </button>
+                                    <div class="faq_answer">
+                                        <p>일반적으로 영업일 기준 1-2일 내에 견적을 제공합니다. 긴급한 경우 당일 답변도 가능하며, 복잡한 시스템의 경우 3-5일 정도 소요될 수 있습니다.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq_item">
+                                    <button class="faq_question" onclick="toggleFaq(this)">
+                                        <span>A/S 및 유지보수 서비스는 어떻게 제공되나요?</span>
+                                        <span class="faq_arrow">▼</span>
+                                    </button>
+                                    <div class="faq_answer">
+                                        <p>전국 서비스 네트워크를 통해 신속한 A/S를 제공합니다. 정기 점검, 긴급 수리, 부품 교체 등 포괄적인 유지보수 서비스를 제공하며, 원격 지원도 가능합니다.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq_item">
+                                    <button class="faq_question" onclick="toggleFaq(this)">
+                                        <span>중고 장비나 리퍼비시 제품도 취급하나요?</span>
+                                        <span class="faq_arrow">▼</span>
+                                    </button>
+                                    <div class="faq_answer">
+                                        <p>네, 검증된 중고 장비와 제조사에서 재정비한 리퍼비시 제품도 취급합니다. 모든 제품은 철저한 성능 검사를 거치며, 신품과 동일한 품질보증을 제공합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div class="contact_info_section">
+                            <h3 class="section_title">연락처 정보</h3>
+                            <div class="contact_info_grid">
+                                <div class="info_item">
+                                    <div class="info_icon">📍</div>
+                                    <h4>본사 주소</h4>
+                                    <p>서울특별시 강남구 테헤란로 123<br>(역삼동) 연구장비빌딩 10층</p>
+                                </div>
+                                <div class="info_item">
+                                    <div class="info_icon">📞</div>
+                                    <h4>대표 전화</h4>
+                                    <p>1588-1234<br>평일 09:00-18:00</p>
+                                </div>
+                                <div class="info_item">
+                                    <div class="info_icon">📠</div>
+                                    <h4>팩스</h4>
+                                    <p>02-1234-5679</p>
+                                </div>
+                                <div class="info_item">
+                                    <div class="info_icon">📧</div>
+                                    <h4>이메일</h4>
+                                    <p>info@research-equipment.co.kr<br>support@research-equipment.co.kr</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </article>
+        
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="footer_top">
+                <div class="inner">
+                    <div class="company_info">
+                        <h3>연구장비 구매 전문 플랫폼</h3>
+                        <address>
+                            서울특별시 강남구 테헤란로 123 (역삼동)<br>
+                            대표전화: 02-1234-5678 | 팩스: 02-1234-5679<br>
+                            사업자등록번호: 123-45-67890 | 대표자: 홍길동
+                        </address>
+                    </div>
+                    <dl class="contact_info">
+                        <dt>고객센터</dt>
+                        <dd>1588-1234</dd>
+                        <dd>평일 09:00-18:00</dd>
+                    </dl>
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">사이트맵</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="inner">
+                    <div class="bot">
+                        <div class="copy">
+                            <p>Copyright © 2024 연구장비 구매 전문 플랫폼. All rights reserved.</p>
+                        </div>
+                        <div class="certify">
+                            <p>인증마크</p>
+                        </div>
+                        <div class="agency">
+                            <img src="images/logo_msit.png" alt="과학기술정보통신부">
+                            <img src="images/logo_nfec.png" alt="국가연구시설장비진흥센터">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- 카카오톡 채널 추가 버튼 (고정) -->
+    <div id="kakaoChannelBtn" class="kakao_channel_btn">
+        <button onclick="addKakaoChannel()">
+            <img src="images/kakao_icon.png" alt="카카오톡">
+            <span>채널 추가</span>
+        </button>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // 카카오 SDK 초기화 (실제 앱 키로 교체 필요)
+        Kakao.init('YOUR_KAKAO_APP_KEY');
+        
+        // 카카오톡 채널 상담 열기
+        function openKakaoChat() {
+            // 실제 카카오톡 채널 ID로 교체 필요
+            Kakao.Channel.chat({
+                channelPublicId: '_your_channel_id'
+            });
+        }
+        
+        // 카카오톡 채널 추가
+        function addKakaoChannel() {
+            Kakao.Channel.addChannel({
+                channelPublicId: '_your_channel_id'
+            });
+        }
+        
+        // 카카오톡으로 문의 내용 전송
+        function sendToKakao() {
+            const form = document.getElementById('quickContactForm');
+            const formData = new FormData(form);
+            
+            // 폼 유효성 검사
+            if (!form.checkValidity()) {
+                alert('필수 항목을 모두 입력해주세요.');
+                return;
+            }
+            
+            // 문의 내용 정리
+            let message = `📋 문의 내용\n\n`;
+            message += `문의 유형: ${formData.get('inquiryType')}\n`;
+            message += `긴급도: ${formData.get('urgency')}\n`;
+            message += `성함: ${formData.get('customerName')}\n`;
+            message += `회사/기관: ${formData.get('company') || '미입력'}\n`;
+            message += `연락처: ${formData.get('phone')}\n`;
+            message += `이메일: ${formData.get('email')}\n`;
+            message += `관심 장비: ${formData.get('equipmentInfo') || '미입력'}\n\n`;
+            message += `문의 내용:\n${formData.get('message')}`;
+            
+            // 카카오톡 메시지 전송
+            Kakao.Link.sendDefault({
+                objectType: 'text',
+                text: message,
+                link: {
+                    mobileWebUrl: window.location.href,
+                    webUrl: window.location.href,
+                },
+                buttonTitle: '상담 신청하기'
+            });
+        }
+        
+        // 폼 초기화
+        function resetForm() {
+            document.getElementById('quickContactForm').reset();
+        }
+        
+        // 폼 제출 처리
+        document.getElementById('quickContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 실제 서버로 전송하는 로직
+            const formData = new FormData(this);
+            
+            // 여기에 실제 서버 전송 로직 구현
+            fetch('/api/contact', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('문의가 성공적으로 전송되었습니다. 빠른 시일 내에 답변드리겠습니다.');
+                resetForm();
+            })
+            .catch(error => {
+                alert('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
+            });
+        });
+        
+        // FAQ 토글 기능
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq_answer');
+            const arrow = button.querySelector('.faq_arrow');
+            
+            faqItem.classList.toggle('active');
+            
+            if (faqItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                arrow.textContent = '▲';
+            } else {
+                answer.style.maxHeight = '0';
+                arrow.textContent = '▼';
+            }
+        }
+        
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // 애니메이션 요소 관찰
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.method_card, .faq_item, .info_item');
+            animateElements.forEach(el => observer.observe(el));
+        });
+        
+        // 카카오톡 채널 버튼 스크롤 효과
+        window.addEventListener('scroll', () => {
+            const kakaoBtn = document.getElementById('kakaoChannelBtn');
+            if (window.scrollY > 300) {
+                kakaoBtn.classList.add('show');
+            } else {
+                kakaoBtn.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

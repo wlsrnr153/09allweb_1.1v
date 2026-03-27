@@ -1,0 +1,15 @@
+﻿<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a-bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B4E8A"/>
+      <stop offset="1" stop-color="#1C82C9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#a-bg)"/>
+  <rect x="170" y="140" width="680" height="410" rx="26" fill="white" fill-opacity="0.12"/>
+  <rect x="920" y="240" width="510" height="340" rx="24" fill="white" fill-opacity="0.1"/>
+  <path d="M0 720C180 660 340 660 520 710C700 760 890 770 1080 710C1270 650 1430 650 1600 700V900H0V720Z" fill="white" fill-opacity="0.14"/>
+  <circle cx="1200" cy="200" r="100" fill="white" fill-opacity="0.15"/>
+  <text x="170" y="640" fill="white" fill-opacity="0.95" font-size="58" font-family="'Segoe UI', Arial, sans-serif" font-weight="700">분석장비</text>
+  <text x="170" y="690" fill="white" fill-opacity="0.9" font-size="30" font-family="'Segoe UI', Arial, sans-serif">Analytical Equipment</text>
+</svg>

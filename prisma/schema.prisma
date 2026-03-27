@@ -1,0 +1,208 @@
+// Prisma Schema for 09all Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  slug        String      @unique
+  description String?
+  icon        String?
+  order       Int         @default(0)
+  equipments  Equipment[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("categories")
+}
+
+model Equipment {
+  id            String    @id @default(cuid())
+  title         String
+  slug          String    @unique
+  brand         String
+  model         String
+  category      Category  @relation(fields: [categoryId], references: [id])
+  categoryId    String
+  
+  // 가격 정보
+  price         String    // 숫자 또는 "별도협의", "문의" 등
+  priceUnit     String    @default("KRW")
+  
+  // 상태 정보
+  condition     String    // new, refurbished, demo
+  status        String    @default("available") // available, sold, reserved
+  year          Int
+  warranty      String?
+  
+  // 재고
+  stock         Int       @default(1)
+  
+  // 상세 정보
+  description   String
+  specifications String?   // JSON string: {key: value} 형태
+  features      String    // JSON string: 배열 형태
+  
+  // 이미지
+  thumbnail     String
+  images        String    // JSON string: 배열 형태
+  
+  // 메타 정보
+  viewCount     Int       @default(0)
+  isPublished   Boolean   @default(true)
+  
+  // SEO
+  metaTitle     String?
+  metaDescription String?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([categoryId])
+  @@index([slug])
+  @@index([brand])
+  @@map("equipment")
+}
+
+model Portfolio {
+  id            String    @id @default(cuid())
+  clientName    String
+  title         String
+  equipmentList String    // JSON string: 배열 형태
+  images        String    // JSON string: 배열 형태
+  description   String?
+  completedAt   DateTime
+  isPublished   Boolean   @default(true)
+  order         Int       @default(0)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("portfolios")
+}
+
+model Inquiry {
+  id            String    @id @default(cuid())
+  name          String
+  company       String?
+  phone         String
+  email         String
+  category      String
+  equipmentId   String?
+  message       String
+  status        String    @default("pending") // pending, contacted, completed
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("inquiries")
+}
+
+model FAQ {
+  id            String    @id @default(cuid())
+  category      String
+  question      String
+  answer        String
+  order         Int       @default(0)
+  isPublished   Boolean   @default(true)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("faqs")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String
+  role          String    @default("admin")
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("users")
+}
+
+// 불용물품 처리 서비스 관련 모델
+
+model Quote {
+  id              String    @id @default(cuid())
+  serviceType     String    // PURCHASE, DISPOSAL, MIXED
+  
+  // 고객 정보
+  customerName    String
+  customerPhone   String
+  customerEmail   String
+  company         String?
+  
+  // 장비 정보
+  equipmentList   String    // JSON string
+  
+  // 매입 정보
+  purchaseAmount  Int?      // 매입 금액
+  purchaseItems   String?   // JSON: 매입 장비 목록
+  
+  // 폐기 정보
+  disposalCost    Int?      // 폐기 비용
+  disposalItems   String?   // JSON: 폐기 장비 목록
+  disposalReason  String?   // NOT_WORKING, TOO_OLD, NO_MARKET_VALUE, DAMAGED, HAZARDOUS, MANDATORY
+  
+  // 최종 정산
+  finalAmount     Int       // 최종 금액 (+ 매입금, - 폐기비)
+  discount        Int?      // 할인액
+  
+  // 상태
+  status          String    @default("pending")
+  notes           String?
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@map("quotes")
+}
+
+model DisposalRecord {
+  id                String    @id @default(cuid())
+  quoteId           String?   // 연결된 견적
+  
+  // 장비 정보
+  equipmentName     String
+  equipmentModel    String?
+  equipmentBrand    String?
+  
+  // 폐기 정보
+  disposalMethod    String    // RECYCLE, INCINERATE, LANDFILL, SPECIAL
+  disposalReason    String    // NOT_WORKING, TOO_OLD, etc.
+  hazardousMaterial Int       @default(0) // 0 or 1 (Boolean)
+  
+  // 처리 내역
+  certificateNumber String    // 폐기증명서 번호
+  disposalDate      String    // ISO date string
+  cost              Int
+  weight            String?   // kg (stored as string for flexibility)
+  
+  // 처리 업체
+  processorName     String    // 처리업체명
+  processorLicense  String    // 허가번호
+  
+  // 인증
+  certifiedBy       String?   // 인증기관
+  certificateUrl    String?   // 증명서 파일 URL
+  
+  notes             String?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@map("disposal_records")
+}
+
