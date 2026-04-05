@@ -1,8 +1,8 @@
 /** 회사 연락처(휴대전화) — UI·문서 전반에서 동일하게 사용 */
 export const COMPANY_CONTACTS = [
-  { role: '팀장', phone: '010-4393-2018' },
-  { role: '부장', phone: '010-4773-3107' },
-  { role: '과장', phone: '010-5147-5006' },
+  { role: '1팀 :', phone: '010-4393-2018' },
+  { role: '2팀 :', phone: '010-5147-5006' },
+  { role: '3팀 :', phone: '010-4773-3107' },
 ] as const
 
 export type CompanyContact = (typeof COMPANY_CONTACTS)[number]
