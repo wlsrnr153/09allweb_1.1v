@@ -1,10 +1,41 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { openKakaoOpenChat } from '@/lib/kakao'
-import { PRIMARY_PHONE, PHONES_DISPLAY_DOT, telHref } from '@/lib/constants/contact'
+import JsonLd from '@/components/seo/JsonLd'
+import { getServiceSchema } from '@/lib/schema/service'
+import { getBreadcrumbSchema } from '@/lib/schema/breadcrumb'
+import { KakaoButton, ContactCTAButtons } from '@/components/contact/ContactButtons'
+
+export const metadata: Metadata = {
+  title: '연구장비 매입 서비스 | 신속한 매입,폐기 처리 서비스',
+  description: '연구실 장비 매입 전문. 분석장비, 계측장비, 실험장비 전국 출장 매입, 빠른 견적. 20년 경력의 전문가가 공정하게 평가합니다.',
+  keywords: [
+    '연구장비 매입 서비스',
+    '실험장비 매입',
+    '분석장비 매입',
+    '계측장비 매입',
+    '장비 매입',
+    '연구장비 처분',
+    '실험실 장비 매입',
+  ],
+  openGraph: {
+    title: '연구장비 매입 서비스 | 신속한 매입,폐기 처리 서비스 | 09all',
+    description: '연구실 장비 매입 전문. 분석장비, 계측장비, 실험장비 전국 출장 매입.',
+    url: 'https://09all.com/services',
+  },
+}
 
 export default function ServicesPage() {
+  const serviceSchema = getServiceSchema({
+    name: '연구장비 매입 서비스',
+    serviceType: '연구장비 매입 및 폐기 처리',
+    description: '연구실 장비 매입, 분석장비, 계측장비, 실험장비 전문 매입 서비스',
+    url: 'https://09all.com/services',
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: '홈', url: 'https://09all.com' },
+    { name: '서비스', url: 'https://09all.com/services' },
+  ])
   const services = [
     {
       icon: '💰',
@@ -54,34 +85,33 @@ export default function ServicesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero 섹션 */}
-      <div className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
-        <div className="container text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            연구장비 매입부터 폐기까지<br />
-            원스톱 종합 서비스
-          </h1>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto mb-8">
-            재판매 가능한 장비는 즉시 매입, 노후 장비는 안전한 폐기 처리<br />
-            09all이 모든 것을 해결해드립니다
-          </p>
-          <div className="flex justify-center gap-4">
-            <button
-              onClick={openKakaoOpenChat}
-              className="px-8 py-4 bg-[#FEE500] text-gray-900 font-semibold rounded-lg hover:bg-[#FDD835] transition-colors shadow-lg"
-            >
-              무료 상담 신청
-            </button>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
-            >
-              견적 문의하기
-            </Link>
+    <>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero 섹션 */}
+        <div className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+          <div className="container text-center">
+            <h1 className="text-5xl font-bold mb-6">
+              연구장비 매입부터 폐기까지<br />
+              원스톱 종합 서비스
+            </h1>
+            <p className="text-xl text-primary-100 max-w-3xl mx-auto mb-8">
+              재판매 가능한 장비는 즉시 매입, 노후 장비는 안전한 폐기 처리<br />
+              09all이 모든 것을 해결해드립니다
+            </p>
+            <div className="flex justify-center gap-4">
+              <KakaoButton />
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+              >
+                견적 문의하기
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
 
       {/* 서비스 카드 */}
       <div className="container py-16">
@@ -289,36 +319,17 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* CTA */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-16">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-4">어떤 서비스가 필요하신가요?</h2>
-          <p className="text-primary-100 mb-8 text-lg">
-            무료 상담으로 최적의 솔루션을 찾아드립니다
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={openKakaoOpenChat}
-              className="px-8 py-4 bg-[#FEE500] text-gray-900 font-semibold rounded-lg hover:bg-[#FDD835] transition-colors shadow-md hover:shadow-lg"
-            >
-              카카오톡 상담
-            </button>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-md hover:shadow-lg"
-            >
-              온라인 문의
-            </Link>
-            <a
-              href={telHref(PRIMARY_PHONE)}
-              className="px-8 py-4 bg-primary-800 text-white font-semibold rounded-lg hover:bg-primary-900 transition-colors text-center"
-            >
-              <span className="block">전화 문의</span>
-              <span className="block text-xs font-normal mt-1.5 opacity-90 leading-snug">{PHONES_DISPLAY_DOT}</span>
-            </a>
+        {/* CTA */}
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-16">
+          <div className="container text-center">
+            <h2 className="text-3xl font-bold mb-4">어떤 서비스가 필요하신가요?</h2>
+            <p className="text-primary-100 mb-8 text-lg">
+              무료 상담으로 최적의 솔루션을 찾아드립니다
+            </p>
+            <ContactCTAButtons />
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

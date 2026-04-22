@@ -1,9 +1,42 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { openKakaoOpenChat } from '@/lib/kakao'
+import JsonLd from '@/components/seo/JsonLd'
+import { getServiceSchema } from '@/lib/schema/service'
+import { getBreadcrumbSchema } from '@/lib/schema/breadcrumb'
+import { KakaoButton, ContactCTAButtons } from '@/components/contact/ContactButtons'
+
+export const metadata: Metadata = {
+  title: '연구장비 폐기 처분 서비스 | 무료 수거',
+  description: '사용하지 않는 연구장비, 실험장비 폐기 처분. 무료 수거, 친환경 폐기, 법적 절차 대행. 폐기처리확인서 발급. 전국 서비스 가능.',
+  keywords: [
+    '연구장비 폐기',
+    '기자재 폐기',
+    '실험장비 처분',
+    '폐실험장비',
+    '장비 무료 수거',
+    '연구실 장비 폐기',
+    '폐기처리확인서',
+    '친환경 폐기',
+  ],
+  openGraph: {
+    title: '연구장비 폐기 처분 서비스 | 무료 수거 | 09all',
+    description: '사용하지 않는 연구장비, 실험장비 폐기 처분. 무료 수거, 친환경 폐기, 법적 절차 대행.',
+    url: 'https://09all.com/disposal',
+  },
+}
 
 export default function DisposalPage() {
+  const serviceSchema = getServiceSchema({
+    name: '연구장비 폐기 처리 서비스',
+    serviceType: '연구장비 폐기 및 처분',
+    description: '사용하지 않는 연구장비, 실험장비 안전한 폐기 처리. 무료 수거, 친환경 폐기, 법적 절차 대행',
+    url: 'https://09all.com/disposal',
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: '홈', url: 'https://09all.com' },
+    { name: '폐기 서비스', url: 'https://09all.com/disposal' },
+  ])
   const disposalMethods = [
     {
       icon: '♻️',
@@ -85,16 +118,20 @@ export default function DisposalPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero 섹션 */}
-      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-20">
-        <div className="container text-center">
-          <div className="inline-block px-6 py-2 bg-white/20 rounded-full text-sm font-semibold mb-6">
-            안전하고 합법적인 폐기 처리
-          </div>
-          <h1 className="text-5xl font-bold mb-6">
-            연구장비 폐기 처리 전문
-          </h1>
+    <>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero 섹션 */}
+        <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-20">
+          <div className="container text-center">
+            <div className="inline-block px-6 py-2 bg-white/20 rounded-full text-sm font-semibold mb-6">
+              안전하고 합법적인 폐기 처리
+            </div>
+            <h1 className="text-5xl font-bold mb-6">
+              연구장비 폐기 처리 전문
+            </h1>
           <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8">
             매입이 어려운 노후·고장 장비를 환경친화적으로 처리하고<br />
             법적 효력이 있는 폐기 증명서를 발급해드립니다
@@ -244,12 +281,9 @@ export default function DisposalPage() {
               <li>✓ 예상 비용 제시</li>
               <li>✓ 통합 솔루션 제안</li>
             </ul>
-            <button
-              onClick={openKakaoOpenChat}
-              className="w-full py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
-            >
+            <KakaoButton className="w-full py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors">
               무료 진단 신청하기
-            </button>
+            </KakaoButton>
           </div>
         </div>
       </div>
@@ -385,35 +419,31 @@ export default function DisposalPage() {
         </div>
       </div> */}
 
-      {/* CTA */}
-      <div className="bg-gradient-to-r from-green-600 to-green-700 text-white py-16">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-4">폐기 처리가 필요하신가요?</h2>
-          <p className="text-green-100 mb-8 text-lg">
-            전문가의 무료 상담으로 최적의 처리 방법을 찾아드립니다
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={openKakaoOpenChat}
-              className="px-8 py-4 bg-[#FEE500] text-gray-900 font-semibold rounded-lg hover:bg-[#FDD835] transition-colors shadow-md hover:shadow-lg"
-            >
-              카카오톡 상담
-            </button>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-md hover:shadow-lg"
-            >
-              온라인 문의
-            </Link>
-            <Link
-              href="/services"
-              className="px-8 py-4 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-900 transition-colors"
-            >
-              서비스 비교하기
-            </Link>
+        {/* CTA */}
+        <div className="bg-gradient-to-r from-green-600 to-green-700 text-white py-16">
+          <div className="container text-center">
+            <h2 className="text-3xl font-bold mb-4">폐기 처리가 필요하신가요?</h2>
+            <p className="text-green-100 mb-8 text-lg">
+              전문가의 무료 상담으로 최적의 처리 방법을 찾아드립니다
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <KakaoButton className="px-8 py-4 bg-[#FEE500] text-gray-900 font-semibold rounded-lg hover:bg-[#FDD835] transition-colors shadow-md hover:shadow-lg" />
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-md hover:shadow-lg"
+              >
+                온라인 문의
+              </Link>
+              <Link
+                href="/services"
+                className="px-8 py-4 bg-green-800 text-white font-semibold rounded-lg hover:bg-green-900 transition-colors"
+              >
+                서비스 비교하기
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

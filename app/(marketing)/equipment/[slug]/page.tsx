@@ -1,8 +1,49 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { formatPrice } from '@/lib/utils'
 import EquipmentDetailClient from '@/components/equipment/EquipmentDetailClient'
 import { getEquipmentBySlug, getRelatedEquipment } from '@/lib/actions/equipment'
+import JsonLd from '@/components/seo/JsonLd'
+import { getProductSchema } from '@/lib/schema/product'
+import { getBreadcrumbSchema } from '@/lib/schema/breadcrumb'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const equipment = await getEquipmentBySlug(slug)
+
+  if (!equipment) {
+    return {
+      title: '장비를 찾을 수 없습니다',
+    }
+  }
+
+  const categoryName = equipment.category?.name || '연구장비'
+
+  return {
+    title: `${equipment.title} 매입 | ${categoryName}`,
+    description: `${equipment.title} 중고 매입. ${equipment.brand} ${equipment.model}. ${categoryName}. 빠른 견적, 전국 출장 서비스. ${equipment.description.slice(0, 100)}`,
+    keywords: [
+      `${equipment.title} 매입`,
+      `중고 ${equipment.title}`,
+      `${equipment.brand} ${equipment.title}`,
+      `${equipment.brand} ${equipment.model}`,
+      `${categoryName} 매입`,
+      equipment.brand,
+      equipment.model,
+    ],
+    openGraph: {
+      title: `${equipment.title} 매입 | ${categoryName} | 09all`,
+      description: `${equipment.title} 중고 매입. ${equipment.brand} ${equipment.model}.`,
+      url: `https://09all.com/equipment/${equipment.slug}`,
+      images: equipment.thumbnail ? [equipment.thumbnail] : [],
+    },
+  }
+}
 
 export default async function EquipmentDetailPage({
   params,
@@ -26,8 +67,44 @@ export default async function EquipmentDetailPage({
     demo: '데모용',
   }
 
+  // Product Schema
+  const productSchema = getProductSchema({
+    name: equipment.title,
+    description: equipment.description,
+    image: equipment.thumbnail || 'https://09all.com/images/placeholder.png',
+    brand: equipment.brand,
+    model: equipment.model,
+    condition: equipment.condition === 'new' ? 'NewCondition' : 'UsedCondition',
+    availability: equipment.stock > 0 ? 'InStock' : 'OutOfStock',
+    url: `https://09all.com/equipment/${equipment.slug}`,
+  })
+
+  // Breadcrumb Schema
+  const breadcrumbItems = [
+    { name: '홈', url: 'https://09all.com' },
+    { name: '장비안내', url: 'https://09all.com/equipment' },
+  ]
+  
+  if (equipment.category) {
+    breadcrumbItems.push({
+      name: equipment.category.name,
+      url: `https://09all.com/equipment?category=${equipment.category.slug}`,
+    })
+  }
+  
+  breadcrumbItems.push({
+    name: equipment.title,
+    url: `https://09all.com/equipment/${equipment.slug}`,
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems)
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <JsonLd data={productSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      
+      <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="container py-4">
@@ -224,5 +301,6 @@ export default async function EquipmentDetailPage({
         )}
       </div>
     </div>
+    </>
   )
 }

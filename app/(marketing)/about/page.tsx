@@ -1,13 +1,40 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
+import { getBreadcrumbSchema } from '@/lib/schema/breadcrumb'
 import {
   COMPANY_ADDRESS,
   COMPANY_LEGAL_NAME_FULL,
   SITE_BRAND_NAME,
 } from '@/lib/constants/company'
 
+export const metadata: Metadata = {
+  title: '회사소개 | 연구장비 매입 전문 기업',
+  description: '09all은 20년 경력의 연구장비 매입 전문 기업입니다. 전문가의 정확한 평가와 공정한 가격으로 고객 만족도 99%를 달성했습니다.',
+  keywords: [
+    '09all',
+    '회사소개',
+    '연구장비 매입 업체',
+    '기자재 매입 회사',
+    '실험장비 매입 전문',
+  ],
+  openGraph: {
+    title: '회사소개 | 연구장비 매입 전문 기업 | 09all',
+    description: '09all은 20년 경력의 연구장비 매입 전문 기업입니다.',
+    url: 'https://09all.com/about',
+  },
+}
+
 export default function AboutPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: '홈', url: 'https://09all.com' },
+    { name: '회사소개', url: 'https://09all.com/about' },
+  ])
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <div className="min-h-screen bg-gray-50">
       {/* 헤더 */}
       <div className="bg-white border-b">
         <div className="container py-8">
@@ -165,6 +192,7 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
