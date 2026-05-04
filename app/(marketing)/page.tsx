@@ -85,9 +85,15 @@ export default function HomePage() {
               </div>
               <div className="container">
                 <div className="max-w-3xl text-white relative z-10">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 whitespace-pre-line leading-tight">
-                    {slide.title}
-                  </h1>
+                  {index === 0 ? (
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 whitespace-pre-line leading-tight">
+                      {slide.title}
+                    </h1>
+                  ) : (
+                    <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 whitespace-pre-line leading-tight">
+                      {slide.title}
+                    </p>
+                  )}
                   <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-white/90">
                     {slide.description}
                   </p>
@@ -231,8 +237,8 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">매입 프로세스</h2>
-            <p className="text-xl text-gray-600">간단하고 빠른 4단계 매입 프로세스</p>
+            <h2 className="text-4xl font-bold mb-4">연구장비 매입 프로세스</h2>
+            <p className="text-xl text-gray-600">간단하고 빠른 4단계 기자재 매입 프로세스</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -286,8 +292,8 @@ export default function HomePage() {
       <section className="py-20 bg-gray-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">왜 09all을 선택해야 할까요?</h2>
-            <p className="text-xl text-gray-600">20년 경험의 전문가가 보장하는 최고의 매입 서비스</p>
+            <h2 className="text-4xl font-bold mb-4">09all 연구장비 매입 서비스의 장점</h2>
+            <p className="text-xl text-gray-600">20년 경험의 전문가가 보장하는 실험장비 매입</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -333,8 +339,8 @@ export default function HomePage() {
       <section className="py-20">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">매입 가능 장비 카테고리</h2>
-            <p className="text-xl text-gray-600">모든 분야의 연구장비 매입 가능합니다</p>
+            <h2 className="text-4xl font-bold mb-4">매입 가능한 연구장비 카테고리</h2>
+            <p className="text-xl text-gray-600">분석장비, 계측장비, 실험장비 등 모든 분야 매입</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -357,8 +363,8 @@ export default function HomePage() {
       <section className="py-20 bg-gray-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">현재 매입 중인 인기 장비</h2>
-            <p className="text-xl text-gray-600">고객으로부터 자주 매입하는 장비입니다</p>
+            <h2 className="text-4xl font-bold mb-4">현재 매입 중인 인기 연구장비</h2>
+            <p className="text-xl text-gray-600">고객으로부터 자주 매입하는 실험장비 목록</p>
           </div>
 
           {/* 탭 */}
@@ -409,8 +415,8 @@ export default function HomePage() {
       <section className="py-20">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">매입 실적</h2>
-            <p className="text-xl text-gray-600">3,000건 이상의 매입 실적, 신뢰할 수 있는 파트너</p>
+            <h2 className="text-4xl font-bold mb-4">연구장비 매입 실적</h2>
+            <p className="text-xl text-gray-600">3,000건 이상의 기자재 매입 실적, 신뢰할 수 있는 파트너</p>
             <p className="text-center text-gray-550 text-xs mt-3">
               기관명·세부 일정은 비식별화한 예시이며, 실제 절차는 각 기관의 내규 및 결재 루트에 따릅니다.
             </p>
@@ -530,9 +536,9 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FEE500]/10 rounded-full blur-3xl"></div>
         
         <div className="container text-center relative z-10">
-          <h2 className="text-4xl font-bold mb-4">사용하지 않는 장비 매입 문의</h2>
+          <h2 className="text-4xl font-bold mb-4">사용하지 않는 연구장비 매입 문의</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            전문 상담원이 귀하의 장비를 정확히 평가하여 최고의 가격을 제안해드립니다
+            전문 상담원이 귀하의 실험장비를 정확히 평가하여 합리적인 가격을 제안해드립니다
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* 카카오톡 버튼 - 강조 */}

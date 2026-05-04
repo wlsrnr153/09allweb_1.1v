@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="bg-gray-900 text-gray-300">
       {/* 메인 푸터 */}
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* 회사 정보 */}
           <div>
             <div className="text-2xl font-bold mb-4">
@@ -67,7 +67,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/equipment" className="hover:text-primary-400 transition-colors">
-                  장비안내
+                  매입 가능 장비
                 </Link>
               </li>
               <li>
@@ -81,23 +81,55 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/portfolio" className="hover:text-primary-400 transition-colors">
+                  매입 실적
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:text-primary-400 transition-colors">
+                  자주 묻는 질문
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-primary-400 transition-colors">
+                  견적 문의
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 서비스 */}
+          <div>
+            <h3 className="text-white font-bold mb-4">서비스</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/services" className="hover:text-primary-400 transition-colors">
+                  연구장비 매입 서비스
+                </Link>
+              </li>
+              <li>
+                <Link href="/disposal" className="hover:text-primary-400 transition-colors">
+                  기자재 폐기 처리
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions" className="hover:text-primary-400 transition-colors">
+                  통합 솔루션
+                </Link>
+              </li>
+              <li>
                 <Link href="/guide" className="hover:text-primary-400 transition-colors">
                   매입 가이드
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="hover:text-primary-400 transition-colors">
-                  매입실적
+                <Link href="/shipping" className="hover:text-primary-400 transition-colors">
+                  배송 정보
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-primary-400 transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-primary-400 transition-colors">
-                  문의하기
+                <Link href="/location" className="hover:text-primary-400 transition-colors">
+                  오시는 길
                 </Link>
               </li>
             </ul>
